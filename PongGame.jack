@@ -24,7 +24,7 @@ class PongGame {
 	    do Screen.clearScreen();
         let batWidth = 50;  // initial bat size
         let bat = Bat.new(230, 229, batWidth, 7);
-        let ball = Ball.new(253, 222, 0, 511);
+        let ball = Ball.new(253, 100, 0, 511);
         do ball.setDestination(400);
         do Screen.drawRectangle(0, 238, 511, 240);
 	    do Output.moveCursor(22,0);
