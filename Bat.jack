@@ -1,25 +1,16 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/11/Pong/Bat.jack
-
 /**
- * A graphical Pong bat. 
- * Displayed as a filled horizontal rectangle that has 
- * a screen location, a width and a height.
- * Has methods for drawing, erasing, moving left and right, 
- * and changing its width (to make the hitting action more challenging).
- * This class should have been called "paddle", following the 
- * standard Pong terminology. But, unaware of this terminology,
- * we called it "bat", and then decided to stick to it. 
+ * Un gráfico Pong bat.
+  * Se muestra como un rectángulo horizontal lleno y un cuadrado en la parte de arriba del mismo los cuales tienen
+  * una ubicación de pantalla, un ancho y una altura.
+  * Tiene métodos para dibujar, borrar, mover hacia la izquierda y hacia la derecha y cambiando su ancho.
  */
 class Bat {
 
-    field int x, y;           // the bat's screen location
-    field int width, height;  // the bat's width and height
-    field int direction;      // direction of the bat's movement (1 = left, 2 = right)
+    field int x, y;           // La pocision en la pantalla de el bat
+    field int width, height;  // El ancho y la altura del bat
+    field int direction;      // Dirección del movimiento del bat (1 = izquierda, 2 = derecha)
 
-    /** Constructs a new bat with the given location and width. */
+    // Construye un nuevo murciélago con la ubicación y el ancho que nos dieron.
     constructor Bat new(int Ax, int Ay, int Awidth, int Aheight) {
         let x = Ax;
         let y = Ay;
@@ -30,50 +21,50 @@ class Bat {
         return this;
     }
 
-    /** Deallocates the object's memory. */
+    // Desasigna la memoria del objeto.
     method void dispose() {
         do Memory.deAlloc(this);
         return;
     }
 
-    /** Shows the bat. */
+    // Muestra el bat.
     method void show() {
         do Screen.setColor(true);
         do draw();
         return;
     }
 
-    /** Hides the bat. */
+    // Oculta el bat.
     method void hide() {
         do Screen.setColor(false);
         do draw();
         return;
     }
 
-    /** Draws the bat. */
+    // Dibuja el bat.
     method void draw() {
         do Screen.drawRectangle(x, y, x + width, y + height);
         do Screen.drawRectangle(x + (width/2) - 5, y - 10, x + (width/2) + 5, y);
         return;
     }
 
-    /** Sets the bat's direction (0=stop, 1=left, 2=right). */
+    // Establece la dirección del bat (0 = parar, 1 = izquierda, 2 = derecha).
     method void setDirection(int Adirection) {
         let direction = Adirection;
         return;
     }
 
-    /** Returns the bat's left edge. */
+    // Devuelve el borde izquierdo del bat.
     method int getLeft() {
         return x;
     }
 
-    /** Returns the bat's right edge. */
+    // Devuelve el borde derecho del bat.
     method int getRight() {
         return x + width;
     }
 
-    /** Sets the bat's width. */
+    // Establece el ancho de la bat.
     method void setWidth(int Awidth) {
         do hide();
         let width = Awidth;
@@ -81,7 +72,7 @@ class Bat {
         return;
     }
 
-    /** Moves the bat one step in the bat's direction. */
+    // Mueve el bat un paso en la dirección a la que se dirige el bat por las flechas.
     method void move() {
 	    if (direction = 1) {
             let x = x - 4;
