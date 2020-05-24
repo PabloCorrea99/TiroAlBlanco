@@ -2,7 +2,7 @@
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/11/Pong/PongGame.jack
-// Jose Luis fuhenfwucwh gngh
+
 /**
  * Represents a Pong game.
  */
@@ -26,7 +26,7 @@ class PongGame {
         let batWidth = 50;  // initial bat size
         let bat = Bat.new(230, 229, batWidth, 7);
         let ball = Ball.new(253, 100, 0, 511);
-        let laser = Laser.new(251,219);
+        let laser = Laser.new(250,219, 0);
         do ball.setDestination(400);
         do Screen.drawRectangle(0, 238, 511, 240);
 	    do Output.moveCursor(22,0);
@@ -72,7 +72,7 @@ class PongGame {
                 do moveBall();
                 do Sys.wait(50);
             }
-            if (key = 131){ do laser.disparar(3); }
+            if (key = 131){ do laser.move(); }
             else {
                 if (key = 130) { do bat.setDirection(1); }
 	            else {
