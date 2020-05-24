@@ -72,7 +72,10 @@ class PongGame {
                 do moveBall();
                 do Sys.wait(50);
             }
-            if (key = 131){ do laser.move(); }
+            if (key = 131){
+                while (y > topWal){
+                    do laser.move();
+                }
             else {
                 if (key = 130) { do bat.setDirection(1); }
 	            else {
