@@ -10,6 +10,8 @@ class Laser {
 
     field int wall;
 
+    field int direction;
+
     constructor Laser new(int Ax, int Ay, int AtopWall) {    	
 	    let x = Ax;		
 	    let y = Ay;
@@ -52,7 +54,7 @@ class Laser {
         return;
     }
 
-    method int move() {
+    method void move() {
         if (direction = 3){
             let y = y - 2;
             if (y > topWall) { do hide(); }
