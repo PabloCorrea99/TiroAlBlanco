@@ -6,16 +6,15 @@ class Laser {
     field int d;
     field boolean positivex;
 
-    field int topWall;
+    //field int topWall;
 
     field int wall;
 
     field int direction;
 
-    constructor Laser new(int Ax, int Ay, int AtopWall) {    	
+    constructor Laser new(int Ax, int Ay) {    	
 	    let x = Ax;		
 	    let y = Ay;
-        let topWall = AtopWall;
         do show();
         return this;
     }
@@ -57,7 +56,7 @@ class Laser {
     method void move() {
         if (direction = 3){
             let y = y - 2;
-            if (y > topWall) { do hide(); }
+            if (y < 0) { do hide(); }
             do Screen.setColor(false);
             do Screen.drawRectangle(x, y, x + 2, y - 2);
             do Screen.setColor(true);
