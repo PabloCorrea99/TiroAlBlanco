@@ -1,0 +1,68 @@
+class Laser {
+
+    field int x, y;
+    field int lengthx, lengthy;
+
+    field int d;
+    field boolean positivex;
+
+    field int topWall;
+
+    field int wall;
+
+    constructor Laser new(int Ax, int Ay, int AtopWall) {    	
+	    let x = Ax;		
+	    let y = Ay;
+        let topWall = AtopWall;
+        do show();
+        return this;
+    }
+
+     method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void show() {
+        do Screen.setColor(true);
+        do draw();
+        return;
+    }
+
+    method void hide() {
+        do Screen.setColor(false);
+	    do draw();
+        return;
+    }
+
+    method void draw() {
+	    do Screen.drawRectangle(x, y, x + 2, y - 7);
+	    return;
+    }
+
+    method int getCenter() {
+        return x;
+    }
+
+    method int getRight() {
+        return x + 5;
+    }
+    method void disparar(int Adirection) {
+        let direction = Adirection;
+        return;
+    }
+
+    method int move() {
+        if (direction = 3){
+            let y = y - 2;
+            if (y > topWall) { do hide(); }
+            do Screen.setColor(false);
+            do Screen.drawRectangle(x, y, x + 2, y - 2);
+            do Screen.setColor(true);
+            do Screen.drawRectangle(x, y + 2, x + 2, y + 9);
+	        do show();
+        }
+        return;
+    }
+
+}
