@@ -3,7 +3,7 @@ class Laser {
     field int x, y;
     field int lengthx, lengthy;
 
-    field int d;
+    field int d, straightD;
     field boolean positivey;
 
     field int topWall;
@@ -15,8 +15,8 @@ class Laser {
     constructor Laser new(int Ax, int Ay, int AtopWall) {    	
 	    let x = Ax;		
 	    let y = Ay;
-        let topWall = AtopWall - 7;
-        do show();
+        let topWall = AtopWall;
+        do hide();
         return this;
     }
 
@@ -50,35 +50,33 @@ class Laser {
         return x + 5;
     }
 
-    method void setDestination(int desty) {
-        var int dy;
-  	    let lengthy = desty - y;
-        let dy = Math.abs(lengthy);
-
-	    let positivey = (y < desty);
-
-        let d = dy;
-
-	    return;
+    method void setX(int posx) {
+        let x = posx;
+        return;
     }
 
-    method void move() {
-        do hide();
-        if (positivey) {
-            let y = y + 2; 
-	    }
-	    else {
-            let y = y - 2;
-	    }
+    method void setDirection(int Adirection) {
+        let direction = Adirection;
+        return;
+    }
 
-	    if (~(y > topWall)) {
-	        let wall = 1;    
-	        let y = topWall;
-	    }
+    method int move() {
 
-	    do show();    
+        if (direction = 1) {
 
-	    return;
+            do hide();
+            let y = y - 4;
+
+            if (y < 0) {
+                let y = 220;
+                do setDirection(0);
+            }
+            else {
+                do show();
+            }
+
+        }
+	    return wall;
     }
 
 }

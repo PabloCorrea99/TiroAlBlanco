@@ -64,12 +64,9 @@ class Bat {
         return x + width;
     }
 
-    // Establece el ancho de la bat.
-    method void setWidth(int Awidth) {
-        do hide();
-        let width = Awidth;
-        do show();
-        return;
+    // Devuelve el valor de el ancho del bate.
+    method int getWidth() {
+        return width;
     }
 
     // Mueve el bat un paso en la dirección a la que se dirige el bat por las flechas.

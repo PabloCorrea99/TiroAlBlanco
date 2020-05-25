@@ -26,8 +26,9 @@ class PongGame {
         let batWidth = 50;  // initial bat size
         let bat = Bat.new(230, 229, batWidth, 7);
         let ball = Ball.new(253, 100, 0, 511);
-        let laser = Laser.new(250,219, 0);
         do ball.setDestination(400);
+        let laser = Laser.new(255, 210, 0);
+        do Screen.setColor(true);
         do Screen.drawRectangle(0, 238, 511, 240);
 	    do Output.moveCursor(22,0);
 	    do Output.printString("Score: 0");
@@ -63,6 +64,7 @@ class PongGame {
      *  the bat's movement direction. */
     method void run() {
         var char key;
+        var int batLeft, batWidth, posx;
 
         while (~exit) {
             // waits for a key to be pressed.
@@ -70,28 +72,32 @@ class PongGame {
                 let key = Keyboard.keyPressed();
                 do bat.move();
                 do moveBall();
+                do laser.move();
                 do Sys.wait(50);
             }
-            if (key = 131){
-                while (y > topWal){
-                    do laser.move();
+            if (key = 131){ 
+                let batLeft = bat.getLeft();
+                let batWidth = bat.getWidth();
+                let posx = batLeft + (batWidth/2);
+                do laser.setX(posx);
+                do laser.setDirection(1); 
                 }
             else {
                 if (key = 130) { do bat.setDirection(1); }
 	            else {
 	                if (key = 132) { do bat.setDirection(2); }
 		            else {
-                        if (key = 140) { let exit = true; }
+                        if (key = 81) { let exit = true; }
 		            }
                 } 
             }
-
 
             // Waits for the key to be released.
             while ((~(key = 0)) & (~exit)) {
                 let key = Keyboard.keyPressed();
                 do bat.move();
                 do moveBall();
+                do laser.move();
                 do Sys.wait(50);
             }
         }
@@ -118,28 +124,27 @@ class PongGame {
         if ((wall > 0) & (~(wall = lastWall))) {
             let lastWall = wall;
             let bouncingDirection = 0;
-            let batLeft = bat.getLeft();
-            let batRight = bat.getRight();
-            let ballLeft = ball.getLeft();
-            let ballRight = ball.getRight();
+            //let batLeft = bat.getLeft();
+            //let batRight = bat.getRight();
+            //let ballLeft = ball.getLeft();
+            //let ballRight = ball.getRight();
   
-            if (wall = 4) {
-                let exit = (batLeft > ballRight) | (batRight < ballLeft);
-                if (~exit) {
-                    if (ballRight < (batLeft + 10)) { let bouncingDirection = -1; }
-                    else {
-                        if (ballLeft > (batRight - 10)) { let bouncingDirection = 1; }
-                    }
-
-                    let batWidth = batWidth - 2;
-                    do bat.setWidth(batWidth);      
-                    let score = score + 1;
-                    do Output.moveCursor(22,7);
-                    do Output.printInt(score);
-                }
-            }
+            //if (wall = 4) {
+            //    let exit = (batLeft > ballRight) | (batRight < ballLeft);
+            //    if (~exit) {
+            //        if (ballRight < (batLeft + 10)) { let bouncingDirection = -1; }
+            //        else {
+            //            if (ballLeft > (batRight - 10)) { let bouncingDirection = 1; }
+            //        }
+    
+            //        let score = score + 1;
+            //        do Output.moveCursor(22,7);
+            //        do Output.printInt(score);
+            //    }
+            //}
             do ball.bounce(bouncingDirection);
         }
         return;
     }
+
 }
