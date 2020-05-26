@@ -54,6 +54,10 @@ class Bat {
         return;
     }
 
+    method int getDirection() {
+        return direction;
+    }
+
     // Devuelve el borde izquierdo del bat.
     method int getLeft() {
         return x;

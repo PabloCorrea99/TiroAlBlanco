@@ -64,7 +64,6 @@ class PongGame {
      *  the bat's movement direction. */
     method void run() {
         var char key;
-        var int batLeft, batWidth, posx;
 
         while (~exit) {
             // waits for a key to be pressed.
@@ -75,13 +74,7 @@ class PongGame {
                 do laser.move();
                 do Sys.wait(50);
             }
-            if (key = 131){ 
-                let batLeft = bat.getLeft();
-                let batWidth = bat.getWidth();
-                let posx = batLeft + (batWidth/2);
-                do laser.setX(posx);
-                do laser.setDirection(1); 
-                }
+            if (key = 131){ do moveLaser(); do laser.setUnico(true); }
             else {
                 if (key = 130) { do bat.setDirection(1); }
 	            else {
@@ -145,6 +138,23 @@ class PongGame {
             do ball.bounce(bouncingDirection);
         }
         return;
+    }
+
+    method void moveLaser() {
+        var int batLeft, batWidth, posx;
+        var boolean unico;
+
+        let batLeft = bat.getLeft();
+        let batWidth = bat.getWidth();
+        let posx = batLeft + (batWidth/2);
+        let unico = laser.getUnico();
+        if (~unico) {
+            do laser.setX(posx);
+        }
+        do laser.setDirection(1);
+
+        return;
+
     }
 
 }

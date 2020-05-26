@@ -1,8 +1,8 @@
 class Ball {
 
-    field int x, y;
-    field int lengthx, lengthy;
-
+    field int x, y, r;
+    field int lengthx;
+    
     field int d;
     field boolean positivex;
 
@@ -14,8 +14,9 @@ class Ball {
     constructor Ball new(int Ax, int Ay, int AleftWall, int ArightWall) {    	
 	    let x = Ax;		
 	    let y = Ay;
-	    let leftWall = AleftWall;
-	    let rightWall = ArightWall - 6;   
+        let r = 10;
+	    let leftWall = AleftWall + 11;
+	    let rightWall = ArightWall - 11;   
 	    let wall = 0;
         do show();
         return this;
@@ -43,7 +44,7 @@ class Ball {
 
     /** Draws the ball. */
     method void draw() {
-	    do Screen.drawRectangle(x, y, x + 5, y + 5);
+	    do Screen.drawCircle(x, y, r);
 	    return;
     }
 
@@ -54,7 +55,7 @@ class Ball {
 
     /** Returns the ball's right edge. */
     method int getRight() {
-        return x + 5;
+        return x + 10;
     }
 
     /** Computes and sets the ball's destination. */
@@ -107,16 +108,7 @@ class Ball {
      * bouncing direction (-1/0/1=left/center/right or up/center/down).
      */
     method void bounce(int bouncingDirection) {
-        var int newx, divLengthx, factor;
-
-        let divLengthx = lengthx / 10;
-	    if (bouncingDirection = 0) { let factor = 10; }
-	    else {
-	        if (((~(lengthx < 0)) & (bouncingDirection = 1)) | ((lengthx < 0) & (bouncingDirection = (-1)))) {
-                let factor = 20;
-            }
-	        else { let factor = 5; } 
-	    }
+        var int newx;
 
 	    if (wall = 1) {
 	        let newx = 506;

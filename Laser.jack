@@ -12,6 +12,8 @@ class Laser {
 
     field int direction;
 
+    field boolean unico;
+
     constructor Laser new(int Ax, int Ay, int AtopWall) {    	
 	    let x = Ax;		
 	    let y = Ay;
@@ -60,7 +62,16 @@ class Laser {
         return;
     }
 
-    method int move() {
+    method void setUnico(boolean Aunico) {
+        let unico = Aunico;
+        return;
+    }
+
+    method boolean getUnico() {
+        return unico;
+    }
+
+    method void move() {
 
         if (direction = 1) {
 
@@ -68,15 +79,15 @@ class Laser {
             let y = y - 4;
 
             if (y < 0) {
-                let y = 220;
+                let y = 210;
                 do setDirection(0);
-            }
-            else {
+                let unico = false;
+            }else {
                 do show();
             }
 
         }
-	    return wall;
+	    return;
     }
 
 }
