@@ -97,7 +97,7 @@ class PongGame {
 
 	    if (exit) {
             do Output.moveCursor(10,27);
-	        do Output.printString("Game Over");
+	        do Output.printString("Game Finished!");
 	    }
             
         return;
@@ -110,7 +110,7 @@ class PongGame {
      * and shrinks the bat's size, to make the game more challenging. 
      */
     method void moveBall() {
-        var int bouncingDirection, batLeft, batRight, ballLeft, ballRight;
+        var int bouncingDirection;
 
         let wall = ball.move();
 
@@ -141,17 +141,34 @@ class PongGame {
     }
 
     method void moveLaser() {
-        var int batLeft, batWidth, posx;
-        var boolean unico;
+        var int batLeft, batWidth, posx, ballTop, ballBottom, ballLeft, ballRight, laserTop, laserBottom, laserLeft, laserRight;
+        var boolean unico, colision;
 
         let batLeft = bat.getLeft();
         let batWidth = bat.getWidth();
-        let posx = batLeft + (batWidth/2);
         let unico = laser.getUnico();
+        let posx = batLeft + (batWidth/2);
+
         if (~unico) {
             do laser.setX(posx);
         }
         do laser.setDirection(1);
+
+        let ballTop = ball.getTop();
+        let ballBottom = ball.getBottom();
+        let ballLeft = ball.getLeft();
+        let ballRight = ball.getRight();
+
+        let laserTop = laser.getTop();
+        let laserBottom = laser.getBottom();
+        let laserLeft = laser.getLeft();
+        let laserRight = laser.getRight();
+
+        if ((((laserLeft > ballLeft) & (laserRight < ballRight)) | (laserRight = ballLeft) | (laserLeft = ballRight)) & (laserTop > ballBottom & laserBottom < ballTop)) {
+            let score = score + 1;
+            do Output.moveCursor(22,7);
+            do Output.printInt(score);
+        }
 
         return;
 

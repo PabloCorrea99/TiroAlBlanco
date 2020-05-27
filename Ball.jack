@@ -2,9 +2,9 @@ class Ball {
 
     field int x, y, r;
     field int lengthx;
-    
+
     field int d;
-    field boolean positivex;
+    field boolean positivex, colision;
 
     field int leftWall, rightWall;
 
@@ -15,8 +15,8 @@ class Ball {
 	    let x = Ax;		
 	    let y = Ay;
         let r = 10;
-	    let leftWall = AleftWall + 11;
-	    let rightWall = ArightWall - 11;   
+	    let leftWall = AleftWall + 10;
+	    let rightWall = ArightWall - 10;   
 	    let wall = 0;
         do show();
         return this;
@@ -50,12 +50,20 @@ class Ball {
 
     /** Returns the ball's left edge. */
     method int getLeft() {
-        return x;
+        return x - 9;
     }
 
     /** Returns the ball's right edge. */
     method int getRight() {
-        return x + 10;
+        return x + 9;
+    }
+
+    method int getTop() {
+        return y - 9;
+    }
+
+    method int getBottom() {
+        return y + 9;
     }
 
     /** Computes and sets the ball's destination. */

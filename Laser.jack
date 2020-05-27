@@ -44,12 +44,20 @@ class Laser {
 	    return;
     }
 
-    method int getCenter() {
+    method int getLeft() {
         return x;
     }
 
     method int getRight() {
         return x + 5;
+    }
+
+    method int getTop() {
+        return y;
+    }
+
+    method int getBottom() {
+        return y + 5; 
     }
 
     method void setX(int posx) {
