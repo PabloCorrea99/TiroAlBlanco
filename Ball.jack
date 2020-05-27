@@ -1,6 +1,6 @@
 class Ball {
 
-    field int x, y, r;
+    field int x, y;
     field int lengthx;
 
     field int d;
@@ -14,9 +14,8 @@ class Ball {
     constructor Ball new(int Ax, int Ay, int AleftWall, int ArightWall) {    	
 	    let x = Ax;		
 	    let y = Ay;
-        let r = 10;
-	    let leftWall = AleftWall + 10;
-	    let rightWall = ArightWall - 10;   
+	    let leftWall = AleftWall;
+	    let rightWall = ArightWall - 20;   
 	    let wall = 0;
         do show();
         return this;
@@ -32,6 +31,8 @@ class Ball {
     method void show() {
         do Screen.setColor(true);
         do draw();
+        do Output.moveCursor(22,10);
+        do Output.printInt(x);
         return;
     }
 
@@ -44,26 +45,35 @@ class Ball {
 
     /** Draws the ball. */
     method void draw() {
-	    do Screen.drawCircle(x, y, r);
+	    do Screen.drawRectangle(x, y, x + 20, y + 20);
 	    return;
     }
 
     /** Returns the ball's left edge. */
     method int getLeft() {
-        return x - 9;
+        return x;
     }
 
     /** Returns the ball's right edge. */
     method int getRight() {
-        return x + 9;
+        return x + 20;
     }
 
     method int getTop() {
-        return y - 9;
+        return y;
     }
 
     method int getBottom() {
-        return y + 9;
+        return y + 20;
+    }
+
+    method void setColision() {
+        let colision = true;
+        return;
+    }
+
+    method void resetBall() {
+        
     }
 
     /** Computes and sets the ball's destination. */
@@ -104,8 +114,13 @@ class Ball {
 	        let wall = 2;    
 	        let x = rightWall;
 	    }
-
-	    do show();
+        if (colision) {
+            do hide();
+            let colision = false;
+        }
+        else {
+            do show();
+        }
 
 	    return wall;
     }

@@ -72,6 +72,7 @@ class PongGame {
                 do bat.move();
                 do moveBall();
                 do laser.move();
+                do verificarColision();
                 do Sys.wait(50);
             }
             if (key = 131){ do moveLaser(); do laser.setUnico(true); }
@@ -141,8 +142,8 @@ class PongGame {
     }
 
     method void moveLaser() {
-        var int batLeft, batWidth, posx, ballTop, ballBottom, ballLeft, ballRight, laserTop, laserBottom, laserLeft, laserRight;
-        var boolean unico, colision;
+        var int batLeft, batWidth, posx;
+        var boolean unico;
 
         let batLeft = bat.getLeft();
         let batWidth = bat.getWidth();
@@ -154,6 +155,14 @@ class PongGame {
         }
         do laser.setDirection(1);
 
+        return;
+    }
+
+    method void verificarColision() {
+        var int ballTop, ballBottom, ballLeft, ballRight, laserTop, laserBottom, laserLeft, laserRight;
+        var boolean colision;
+
+        let colision = false;
         let ballTop = ball.getTop();
         let ballBottom = ball.getBottom();
         let ballLeft = ball.getLeft();
@@ -163,15 +172,17 @@ class PongGame {
         let laserBottom = laser.getBottom();
         let laserLeft = laser.getLeft();
         let laserRight = laser.getRight();
-
-        if ((((laserLeft > ballLeft) & (laserRight < ballRight)) | (laserRight = ballLeft) | (laserLeft = ballRight)) & (laserTop > ballBottom & laserBottom < ballTop)) {
+        //(((laserRight > ballLeft) & (laserLeft < ballRight)) | (laserRight = ballLeft) | (laserLeft = ballRight)) & ((laserTop > ballBottom) & (laserBottom < ballTop))
+        if (((laserLeft > ballLeft) & (laserRight < ballRight)) & ((laserBottom < ballBottom) & (laserTop > ballTop))) {
             let score = score + 1;
+            let colision = true;
+            do laser.setColision();
+            do ball.setColision();
             do Output.moveCursor(22,7);
             do Output.printInt(score);
         }
 
         return;
-
     }
 
 }
