@@ -101,8 +101,6 @@ class Laser {
             }
 
         }
-        do Output.moveCursor(22,19);
-        do Output.printInt(x);
 	    return;
     }
 

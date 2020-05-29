@@ -1,6 +1,6 @@
 class Ball {
 
-    field int x, y;
+    field int x, y, velocidad;
     field int lengthx;
 
     field int d;
@@ -17,6 +17,7 @@ class Ball {
 	    let leftWall = AleftWall;
 	    let rightWall = ArightWall - 20;   
 	    let wall = 0;
+        let velocidad = 0;
         do show();
         return this;
     }
@@ -31,8 +32,6 @@ class Ball {
     method void show() {
         do Screen.setColor(true);
         do draw();
-        do Output.moveCursor(22,10);
-        do Output.printInt(x);
         return;
     }
 
@@ -46,6 +45,8 @@ class Ball {
     /** Draws the ball. */
     method void draw() {
 	    do Screen.drawRectangle(x, y, x + 20, y + 20);
+        do Output.moveCursor(22,20);
+        do Output.printInt(x);
 	    return;
     }
 
@@ -72,8 +73,9 @@ class Ball {
         return;
     }
 
-    method void resetBall() {
-        
+    method void setVelocidad(int newVelocidad) {
+        let velocidad = newVelocidad;
+        return;
     }
 
     /** Computes and sets the ball's destination. */
@@ -100,10 +102,10 @@ class Ball {
 	    do hide();
 
         if (positivex) {
-            let x = x + 4; 
+            let x = x + 4 + velocidad; 
 	    }
 	    else {
-            let x = x - 4;
+            let x = x - 4 - velocidad;
 	    }
 
 	    if (~(x > leftWall)) {

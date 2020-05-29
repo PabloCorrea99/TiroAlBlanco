@@ -95,8 +95,6 @@ class Bat {
             do Screen.drawRectangle((x + width) - 3, y, x + width, y + height);
             do Screen.drawRectangle(x + (width/2) + 2, y - 10, x + (width/2) + 5, y);
         }
-        do Output.moveCursor(22,14);
-        do Output.printInt(x+(width/2));
         return;
     }
 }
