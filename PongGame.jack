@@ -131,6 +131,8 @@ class PongGame {
 
         if (~unico) {
             do laser.setX(posx);
+            do Output.moveCursor(22,30);
+            do Output.printString("     ");
         }
         do laser.setDirection(1);
 
@@ -159,44 +161,17 @@ class PongGame {
             do ball.setColision();
             let velocidad = velocidad + 1;
             do ball.setVelocidad(velocidad);
-            do ballBoom();
             do Output.moveCursor(22,7);
             do Output.printInt(score);
             do Output.moveCursor(22,18);
             do Output.printInt(velocidad);
+            do Output.moveCursor(22,30);
+            do Output.printString("BOOM!");
         }
 
         return;
     }
 
-    method void ballBoom() {
-        var int ballLeft;
 
-        let ballLeft = ball.getLeft();
-
-        do Output.moveCursor(12,32);
-	    do Output.printString("¡¡¡¡BOOM!!!!");
-        do ball.hide();
-        do Ball.wait(5);
-
-        if (ballLeft < 128) {
-            do ball.setDestination(384);
-            do ball.show();
-        }
-        if ( ((ballLeft > 128) | (ballLeft = 128)) & (ballLeft < 256) )  {
-            do ball.setDestination(28);
-            do ball.show();
-        }
-        if ( ((ballLeft > 256) | (ballLeft = 256)) & (ballLeft < 384) )  {
-            do ball.setDestination(480);
-            do ball.show();
-        }
-        if ( ((ballLeft > 384) | (ballLeft = 384)) & (ballLeft < 512) )  {
-            do ball.setDestination(128);
-            do ball.show();
-        }
-
-        return;
-    }
 
 }

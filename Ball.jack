@@ -45,8 +45,6 @@ class Ball {
     // Dibuja la bola.
     method void draw() {
 	    do Screen.drawRectangle(x, y, x + 20, y + 20);
-        do Output.moveCursor(22,20);
-        do Output.printInt(x);
 	    return;
     }
 
@@ -95,6 +93,11 @@ class Ball {
 	    return;
     }
 
+    method void setX(int Ax) {
+        let x = Ax;
+        return;
+    }
+
     // Mueve la pelota una unidad hacia su destino.
     // Si la pelota ha alcanzado una pared, devuelve 0.
     // De lo contrario, devuelve un valor de acuerdo con la pared:
@@ -120,6 +123,7 @@ class Ball {
 	    }
         if (colision) {
             do hide();
+            do ballBoom();
             let colision = false;
         }
         else {
@@ -143,6 +147,32 @@ class Ball {
         }
 
         do setDestination(newx);
+        return;
+    }
+
+    method void ballBoom() {
+
+        if (x < 128) {
+            do setX(256);
+            do bounce(400);
+        }
+        if ( ((x > 128) | (x = 128)) & (x < 256) )  {
+            do setX(450);
+            do bounce(1);
+        }
+        if ( ((x > 256) | (x = 256)) & (x < 384) )  {
+            do setX(20);
+            do bounce(500);
+        }
+        if ( ((x > 384) | (x = 384)) & (x < 512) )  {
+            do setX(256);
+            do bounce(1);
+        }
+        else {
+            do setX(450);
+            do bounce(1);
+        }
+
         return;
     }
 
