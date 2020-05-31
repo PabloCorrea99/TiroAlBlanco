@@ -202,6 +202,7 @@ class PongGame {
             do ball.setDestination(128);
             do ball.show();
         }
+        return;
     }
 
 }
