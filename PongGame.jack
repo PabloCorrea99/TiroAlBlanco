@@ -1,33 +1,25 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/11/Pong/PongGame.jack
-
-/**
- * Represents a Pong game.
- */
 class PongGame {
 
-    static PongGame instance; // the singelton, a Pong game instance     
-    field Bat bat;            // the bat
+    static PongGame instance; // Una instancia del Juego.
+    field Bat bat;            // El bat.
     field Ball ball;   
-    field Laser laser;     // the ball
-    field int wall;           // the current wall that the ball is bouncing off of.
-    field boolean exit;       // true when the game is over
-    field int score;          // the current score.
-    field int lastWall;       // the last wall that the ball bounced off of.
+    field Laser laser;        // La bola.
+    field int wall;           // La pared actual en la que rebota la pelota.
+    field boolean exit;       // true cuando el juego termina.
+    field int score;          // El score actual.
+    field int lastWall;       // La última pared de la que rebotó la pelota.
     field int velocidad;
 
-    // The current width of the bat
+    // El ancho actual del bat
     field int batWidth;
 
-    /** Constructs a new Pong game. */
+    // Construye un nuevo juego.
     constructor PongGame new() {
 	    do Screen.clearScreen();
-        let batWidth = 50;  // initial bat size
+        let batWidth = 50;  // Tamaño inicial del bat
         let bat = Bat.new(230, 229, batWidth, 7);
         let ball = Ball.new(253, 100, 0, 511);
-        do ball.setDestination(400);
+        do ball.setDestination(400);    // Destino inicial de la bola
         let laser = Laser.new(255, 210, 0);
         do Screen.setColor(true);
         do Screen.drawRectangle(0, 238, 511, 240);
@@ -45,7 +37,7 @@ class PongGame {
         return this;
     }
 
-    /** Deallocates the object's memory. */
+    // Desasigna la memoria del objeto.
     method void dispose() {
         do bat.dispose();
 	    do ball.dispose();
@@ -53,24 +45,24 @@ class PongGame {
         return;
     }
 
-    /** Creates an instance of Pong game, and stores it. */
+    // Crea una instancia del juego y la almacena.
     function void newInstance() {
         let instance = PongGame.new();
         return;
     }
     
-    /** Returns the single instance of this Pong game. */
+    // Devuelve la instancia única de este juego de Pong.
     function PongGame getInstance() {
         return instance;
     }
 
-    /** Starts the game, and andles inputs from the user that control
-     *  the bat's movement direction. */
+    // Inicia el juego y maneja las entradas del usuario que 
+    // controlan la dirección del movimiento del bat.
     method void run() {
         var char key;
 
         while (~exit) {
-            // waits for a key to be pressed.
+            // Espera a que se presione una tecla.
             while ((key = 0) & (~exit)) {
                 let key = Keyboard.keyPressed();
                 do bat.move();
@@ -90,7 +82,7 @@ class PongGame {
                 } 
             }
 
-            // Waits for the key to be released.
+            // Espera a que se deje de presionar la tecla.
             while ((~(key = 0)) & (~exit)) {
                 let key = Keyboard.keyPressed();
                 do bat.move();
@@ -108,12 +100,13 @@ class PongGame {
         return;
     }
 
-    /**
-     * Handles ball movement, including bouncing.
-     * If the ball bounces off a wall, finds its new direction.
-     * If the ball bounces off the bat, increases the score by one
-     * and shrinks the bat's size, to make the game more challenging. 
-     */
+    // Maneja el movimiento de la bola, incluido el rebote.
+    // Maneja el movimiento del laser.
+    // Si la pelota rebota en una pared, le da una nueva dirección.
+    // Si el laser colisiona con la bola, aumenta el puntaje en uno,
+    // coloca la bola en otra zona de la pantalla y
+    // aumenta la velocidad de la misma, para que el juego sea más desafiante.
+
     method void moveBall() {
         var int bouncingDirection;
 
@@ -202,6 +195,7 @@ class PongGame {
             do ball.setDestination(128);
             do ball.show();
         }
+
         return;
     }
 
