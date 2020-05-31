@@ -12,7 +12,7 @@ class Laser {
 
     field int direction;
 
-    field boolean unico;
+    field boolean unico, colision;
 
     constructor Laser new(int Ax, int Ay, int AtopWall) {    	
 	    let x = Ax;		
@@ -79,6 +79,11 @@ class Laser {
         return unico;
     }
 
+    method void setColision() {
+        let colision = true;
+        return;
+    }
+
     method void move() {
 
         if (direction = 1) {
@@ -86,10 +91,11 @@ class Laser {
             do hide();
             let y = y - 4;
 
-            if (y < 0) {
+            if ((y < 0) | colision) {
                 let y = 210;
                 do setDirection(0);
                 let unico = false;
+                let colision = false;
             }else {
                 do show();
             }

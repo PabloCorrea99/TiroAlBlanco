@@ -1,8 +1,9 @@
 /**
- * Un gráfico Pong bat.
-  * Se muestra como un rectángulo horizontal lleno y un cuadrado en la parte de arriba del mismo los cuales tienen
+  * Un gráfico bat.
+  * Se muestra como un rectángulo horizontal y un cuadrado en la parte superior del mismo, los cuales tienen
   * una ubicación de pantalla, un ancho y una altura.
-  * Tiene métodos para dibujar, borrar, mover hacia la izquierda y hacia la derecha y cambiando su ancho.
+  * Tiene métodos para dibujar, borrar, mover hacia la izquierda y hacia la derecha, establecer una direccion,
+  * obtener la direccion y obtener las posiciones de cada uno de sus lados.
  */
 class Bat {
 
@@ -10,7 +11,7 @@ class Bat {
     field int width, height;  // El ancho y la altura del bat
     field int direction;      // Dirección del movimiento del bat (1 = izquierda, 2 = derecha)
 
-    // Construye un nuevo murciélago con la ubicación y el ancho que nos dieron.
+    // Construye un nuevo bat con la ubicación y el ancho que nos dieron.
     constructor Bat new(int Ax, int Ay, int Awidth, int Aheight) {
         let x = Ax;
         let y = Ay;
@@ -54,6 +55,7 @@ class Bat {
         return;
     }
 
+    // Devuelve la direccion de el bat.
     method int getDirection() {
         return direction;
     }
@@ -68,12 +70,12 @@ class Bat {
         return x + width;
     }
 
-    // Devuelve el valor de el ancho del bate.
+    // Devuelve el valor de el ancho del bat.
     method int getWidth() {
         return width;
     }
 
-    // Mueve el bat un paso en la dirección a la que se dirige el bat por las flechas.
+    // Mueve el bat un paso en la dirección a la que se dirige segun las flechas.
     method void move() {
 	    if (direction = 1) {
             let x = x - 4;
