@@ -1,4 +1,4 @@
-package paralelismo;
+package TiroAlBlanco.paralelismo;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,10 +8,12 @@ public class LectorB extends Thread {
 
     private int inicio;
     private int fin;
+    private long lineas;
 
-    public LectorB(int inicio, int fin){
+    public LectorB(int inicio, int fin, long lineas){
         this.inicio = inicio;
         this.fin = fin;
+        this.lineas = lineas;
     }
 
     @Override
@@ -21,9 +23,10 @@ public class LectorB extends Thread {
         FileReader lector = null;
         BufferedReader br = null;           
         try {
-            archivo = new File("C:/cygwin64/home/spulgarinv/st0254/254sspulgarinv/Nand2Tetris/nand2tetris/tools/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            archivo = new File("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
             lector = new FileReader(archivo);
             br = new BufferedReader(lector);
+            String linea;
             String valor [];
             double columna1;
             double columna2;
@@ -32,7 +35,9 @@ public class LectorB extends Thread {
             double max1, max2, max3, max4;
             double min1, min2, min3, min4;
             valor = new String[7];
-            valor = br.readLine().split(";");
+            linea = br.readLine();
+            valor = linea.split(";");
+            long numLineas = linea.length();
             columna1 = Double.parseDouble(valor [2]);
             columna2 = Double.parseDouble(valor [3]);
             columna3 = Double.parseDouble(valor [4]);
@@ -45,6 +50,8 @@ public class LectorB extends Thread {
             min2 = columna2;
             min3 = columna3;
             min4 = columna4;
+            long caracteres = lineas * numLineas ;
+            br.skip(caracteres);
             for (int i = inicio; i <= fin ; i++) {
                 valor = br.readLine().split(";");
                 columna1 =  Double.parseDouble(valor [2]);
@@ -68,18 +75,14 @@ public class LectorB extends Thread {
                 else if (columna4 < min4)
                     min4 = columna4;
             }
-            System.out.println("El maximo de la columna uno es:"+max1);
-            System.out.println("El minimo de la columna uno es:"+min1);
-            System.out.println("------------------------------------");
-            System.out.println("El maximo de la columna dos es:"+max2);
-            System.out.println("El minimo de la columna dos es:"+min2);
-            System.out.println("------------------------------------");
-            System.out.println("El maximo de la columna tres es:"+max3);
-            System.out.println("El minimo de la columna tres es:"+min3);
-            System.out.println("------------------------------------");
-            System.out.println("El maximo de la columna cuatro es:"+max4);
-            System.out.println("El minimo de la columna cuatro es:"+min4);
-            System.out.println("------------------------------------"); 
+            System.out.print("El maximo de la columna uno es:"+max1+'\n'+
+            "El minimo de la columna uno es:"+min1+'\n'+
+            "El maximo de la columna uno es:"+max2+'\n'+
+            "El minimo de la columna uno es:"+min2+'\n'+
+            "El maximo de la columna uno es:"+max3+'\n'+
+            "El minimo de la columna uno es:"+min3+'\n'+
+            "El maximo de la columna uno es:"+max4+'\n'+
+            "El minimo de la columna uno es:"+min4+'\n');
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -95,6 +98,10 @@ public class LectorB extends Thread {
     }
 
     public static void main(String[] args)   {
-        new LectorB(2,1116772).start();
+       LectorB t1 = new LectorB(2,10000,0);
+       LectorB t2 = new LectorB(10001,100000,10000);
+       t1.start();
+       t2.start();
+       
     }
 }

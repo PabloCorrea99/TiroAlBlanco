@@ -1,4 +1,4 @@
-package paralelismo;
+package TiroAlBlanco.paralelismo;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ class LectorA {
        BufferedReader br = null;
 
        try {
-          archivo = new File ("C:/cygwin64/home/spulgarinv/st0254/254sspulgarinv/Nand2Tetris/nand2tetris/tools/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+          archivo = new File ("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
           lector = new FileReader (archivo);
           br = new BufferedReader(lector);
           String linea;
@@ -61,18 +61,14 @@ class LectorA {
                else if (columna4 < min4)
                   min4 = columna4;
             }
-            System.out.println("El maximo de la columna uno es:"+max1);
-            System.out.println("El minimo de la columna uno es:"+min1);
-            System.out.println("------------------------------------");
-            System.out.println("El maximo de la columna dos es:"+max2);
-            System.out.println("El minimo de la columna dos es:"+min2);
-            System.out.println("------------------------------------");
-            System.out.println("El maximo de la columna tres es:"+max3);
-            System.out.println("El minimo de la columna tres es:"+min3);
-            System.out.println("------------------------------------");
-            System.out.println("El maximo de la columna cuatro es:"+max4);
-            System.out.println("El minimo de la columna cuatro es:"+min4);
-            System.out.println("------------------------------------"); 
+            System.out.println("El maximo de la columna uno es:"+max1+'\n'+
+            "El minimo de la columna uno es:"+min1+'\n'+
+            "El maximo de la columna uno es:"+max2+'\n'+
+            "El minimo de la columna uno es:"+min2+'\n'+
+            "El maximo de la columna uno es:"+max3+'\n'+
+            "El minimo de la columna uno es:"+min3+'\n'+
+            "El maximo de la columna uno es:"+max4+'\n'+
+            "El minimo de la columna uno es:"+min4);
          }catch(Exception NullPointerException){
             System.err.println("ERROR EN EL CSV");
          }
