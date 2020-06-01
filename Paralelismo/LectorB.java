@@ -1,4 +1,4 @@
-package TiroAlBlanco.paralelismo;
+package paralelismo;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +22,7 @@ public class LectorB extends Thread {
         FileReader lector = null;
         BufferedReader br = null;           
         try {
-            archivo = new File("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            archivo = new File("/Users/carlosmesa/Documents/Universidad/5SEMESTRE/Organizacion de computadores/Practica final/Codigo/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
             lector = new FileReader(archivo);
             br = new BufferedReader(lector);
             String linea;
@@ -31,8 +31,8 @@ public class LectorB extends Thread {
             double columna2;
             double columna3;
             double columna4;
-            double max1, max2, max3, max4;
-            double min1, min2, min3, min4;
+            double max1, max2, max3, max4, maxtot;
+            double min1, min2, min3, min4, mintot;
             valor = new String[7];
             linea = br.readLine();
             valor = linea.split(";");
@@ -73,14 +73,15 @@ public class LectorB extends Thread {
                 else if (columna4 < min4)
                     min4 = columna4;
             }
+            System.out.println(Thread.currentThread());
             System.out.print("El maximo de la columna uno es:"+max1+'\n'+
             "El minimo de la columna uno es:"+min1+'\n'+
-            "El maximo de la columna uno es:"+max2+'\n'+
-            "El minimo de la columna uno es:"+min2+'\n'+
-            "El maximo de la columna uno es:"+max3+'\n'+
-            "El minimo de la columna uno es:"+min3+'\n'+
-            "El maximo de la columna uno es:"+max4+'\n'+
-            "El minimo de la columna uno es:"+min4+'\n');
+            "El maximo de la columna dos es:"+max2+'\n'+
+            "El minimo de la columna dos es:"+min2+'\n'+
+            "El maximo de la columna tres es:"+max3+'\n'+
+            "El minimo de la columna tres es:"+min3+'\n'+
+            "El maximo de la columna cuatro es:"+max4+'\n'+
+            "El minimo de la columna cuatro es:"+min4+'\n');
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -133,9 +134,10 @@ public class LectorB extends Thread {
        
        LectorB t18 = new LectorB((x*17)+2, (18*x),x*17);
        
-       LectorB t19 = new LectorB((x*18)+2, 1116772,x*18);
+       LectorB t19 = new LectorB((x*18)+2, (19*x),x*18);
 
-       LectorB t20 = new LectorB((x*19)+2, (20*x) ,x*19);
+       LectorB t20 = new LectorB((x*19)+2, 1116772 ,x*19);
+
        t1.start(); t2.start();t3.start(); t4.start();
        t5.start(); t6.start();t7.start(); t8.start();
        t9.start(); t10.start();t11.start(); t12.start();
@@ -146,6 +148,7 @@ public class LectorB extends Thread {
        t9.join(); t10.join();t11.join(); t12.join();
        t13.join(); t14.join();t15.join(); t16.join();
        t17.join(); t18.join();t19.join(); t20.join();
+
        System.out.println(System.currentTimeMillis()-inicioPro + " milisegundos");
        
        
