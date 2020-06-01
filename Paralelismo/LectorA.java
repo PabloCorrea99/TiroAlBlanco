@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-class Lector {
+class LectorA {
     public static void main(String [] arg) {
        long inicio = System.currentTimeMillis();
        File archivo = null;
@@ -11,7 +11,7 @@ class Lector {
        BufferedReader br = null;
 
        try {
-          archivo = new File ("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+          archivo = new File ("/Users/carlosmesa/Documents/Universidad/5SEMESTRE/Organizacion de computadores/Practica final/Codigo/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
           lector = new FileReader (archivo);
           br = new BufferedReader(lector);
           String linea;
