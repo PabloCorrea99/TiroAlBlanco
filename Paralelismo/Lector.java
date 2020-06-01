@@ -14,7 +14,7 @@ class Lector {
           archivo = new File ("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
           lector = new FileReader (archivo);
           br = new BufferedReader(lector);
-          
+          String linea;
           String valor [];
           double columna1;
           double columna2;
@@ -38,8 +38,8 @@ class Lector {
           min3 = columna3;
           min4 = columna4;
          try{
-            while(br.readLine()!=null){
-               valor = br.readLine().split(";");
+            while((linea=br.readLine())!=null){
+               valor = linea.split(";");
                columna1 =  Double.parseDouble(valor [2]);
                columna2 =  Double.parseDouble(valor [3]);
                columna3 =  Double.parseDouble(valor [4]);
@@ -61,8 +61,6 @@ class Lector {
                else if (columna4 < min4)
                   min4 = columna4;
             }
-
-         }catch(Exception NullPointerException){
             System.out.println("El maximo de la columna uno es:"+max1);
             System.out.println("El minimo de la columna uno es:"+min1);
             System.out.println("------------------------------------");
@@ -75,6 +73,8 @@ class Lector {
             System.out.println("El maximo de la columna cuatro es:"+max4);
             System.out.println("El minimo de la columna cuatro es:"+min4);
             System.out.println("------------------------------------"); 
+         }catch(Exception NullPointerException){
+            System.err.println("ERROR EN EL CSV");
          }
 
       
