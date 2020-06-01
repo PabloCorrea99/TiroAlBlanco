@@ -1,4 +1,4 @@
-package paralelismo;
+package TiroAlBlanco.paralelismo;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ class LectorA {
        BufferedReader br = null;
 
        try {
-          archivo = new File ("/Users/carlosmesa/Documents/Universidad/5SEMESTRE/Organizacion de computadores/Practica final/Codigo/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+          archivo = new File ("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\LectorB.java");
           lector = new FileReader (archivo);
           br = new BufferedReader(lector);
           String linea;
