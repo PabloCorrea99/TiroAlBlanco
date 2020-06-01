@@ -75,12 +75,12 @@ public class LectorB extends Thread {
             }
             System.out.print("El maximo de la columna uno es:"+max1+'\n'+
             "El minimo de la columna uno es:"+min1+'\n'+
-            "El maximo de la columna uno es:"+max2+'\n'+
-            "El minimo de la columna uno es:"+min2+'\n'+
-            "El maximo de la columna uno es:"+max3+'\n'+
-            "El minimo de la columna uno es:"+min3+'\n'+
-            "El maximo de la columna uno es:"+max4+'\n'+
-            "El minimo de la columna uno es:"+min4+'\n');
+            "El maximo de la columna dos es:"+max2+'\n'+
+            "El minimo de la columna dos es:"+min2+'\n'+
+            "El maximo de la columna tres es:"+max3+'\n'+
+            "El minimo de la columna tres es:"+min3+'\n'+
+            "El maximo de la columna cuatro es:"+max4+'\n'+
+            "El minimo de la columna cuatro es:"+min4+'\n');
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
