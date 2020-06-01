@@ -245,9 +245,9 @@ public class LectorB extends Thread {
         numeros2max [18] = t19.max2;
         numeros2max [19] = t20.max2;
 
-        for (int j = 0; j <= numeros1max.length; j++) {
-            if ( numeros1max[j]> max1)
-                max1 = numeros1max[j];
+        for (int j = 0; j <= numeros2max.length; j++) {
+            if ( numeros2max[j]> max2)
+                max2 = numeros2max[j];
         }
 
         numeros3max [0] = t1.max3;
@@ -271,6 +271,11 @@ public class LectorB extends Thread {
         numeros3max [18] = t19.max3;
         numeros3max [19] = t20.max3;
 
+        for (int j = 0; j <= numeros3max.length; j++) {
+            if ( numeros3max[j]> max3)
+                max3 = numeros3max[j];
+        }
+
         numeros4max [0] = t1.max4;
         numeros4max [1] = t2.max4;
         numeros4max [2] = t3.max4;
@@ -291,6 +296,11 @@ public class LectorB extends Thread {
         numeros4max [17] = t18.max4;
         numeros4max [18] = t19.max4;
         numeros4max [19] = t20.max4;
+
+        for (int j = 0; j <= numeros4max.length; j++) {
+            if ( numeros4max[j]> max4)
+                max4 = numeros4max[j];
+        }
 
         numeros1min [0] = t1.min1;
         numeros1min [1] = t2.min1;
@@ -313,6 +323,11 @@ public class LectorB extends Thread {
         numeros1min [18] = t19.min1;
         numeros1min [19] = t20.min1;
 
+        for (int j = 0; j <= numeros1min.length; j++) {
+            if ( numeros1min[j]<min1 )
+                min1 = numeros1min[j];
+        }
+
         numeros2min [0] = t1.min2;
         numeros2min [1] = t2.min2;
         numeros2min [2] = t3.min2;
@@ -333,6 +348,11 @@ public class LectorB extends Thread {
         numeros2min [17] = t18.min2;
         numeros2min [18] = t19.min2;
         numeros2min [19] = t20.min2;
+
+        for (int j = 0; j <= numeros2min.length; j++) {
+            if ( numeros2min[j]<min2 )
+                min2 = numeros2min[j];
+        }
 
         numeros3min [0] = t1.min3;
         numeros3min [1] = t2.min3;
@@ -355,6 +375,11 @@ public class LectorB extends Thread {
         numeros3min [18] = t19.min3;
         numeros3min [19] = t20.min3; 
 
+        for (int j = 0; j <= numeros3min.length; j++) {
+            if ( numeros3min[j]<min3 )
+                min3 = numeros3min[j];
+        }
+
         numeros4min [0] = t1.min4;
         numeros4min [1] = t2.min4;
         numeros4min [2] = t3.min4;
@@ -376,7 +401,10 @@ public class LectorB extends Thread {
         numeros4min [18] = t19.min4;
         numeros4min [19] = t20.min4;
 
-
+        for (int j = 0; j <= numeros4min.length; j++) {
+            if ( numeros4min[j]<min4 )
+                min4 = numeros4min[j];
+        }
 
         System.out.println("WOWO:"+t1.max1);
         System.out.println(System.currentTimeMillis() - inicioPro + " milisegundos");
