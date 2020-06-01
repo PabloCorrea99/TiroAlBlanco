@@ -378,7 +378,7 @@ public class LectorB extends Thread {
             if ( numeros4min[j]<min4 )
                 min4 = numeros4min[j];
         }
-        //CARLOS AQUI ESTA INUTIL
+        
         System.out.println("El maximo de la columna uno es:"+max1+'\n'+
             "El minimo de la columna uno es:"+min1+'\n'+
             "El maximo de la columna uno es:"+max2+'\n'+
