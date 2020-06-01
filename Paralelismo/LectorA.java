@@ -1,4 +1,4 @@
-package TiroAlBlanco.paralelismo;
+package paralelismo;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ class LectorA {
        BufferedReader br = null;
 
        try {
-          archivo = new File ("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\LectorB.java");
+          archivo = new File ("C:/cygwin64/home/spulgarinv/st0254/254sspulgarinv/Nand2Tetris/nand2tetris/tools/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
           lector = new FileReader (archivo);
           br = new BufferedReader(lector);
           String linea;
