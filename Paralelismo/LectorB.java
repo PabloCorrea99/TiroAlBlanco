@@ -82,15 +82,7 @@ public class LectorB extends Thread {
             this.min2 = min2;
             this.min3 = min3;
             this.min4 = min4;
-            System.out.println(Thread.currentThread());
-            System.out.print("El maximo de la columna uno es:"+this.max1+'\n'+
-            "El minimo de la columna uno es:"+this.min1+'\n'+
-            "El maximo de la columna dos es:"+this.max2+'\n'+
-            "El minimo de la columna dos es:"+this.min2+'\n'+
-            "El maximo de la columna tres es:"+this.max3+'\n'+
-            "El minimo de la columna tres es:"+this.min3+'\n'+
-            "El maximo de la columna cuatro es:"+this.max4+'\n'+
-            "El minimo de la columna cuatro es:"+this.min4+'\n');
+            
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -162,26 +154,7 @@ public class LectorB extends Thread {
         t18.start();
         t19.start();
         t20.start(); 
-/*
-        for (int j = 0; j <= 19; j++) {
-            if ( > max1)
-                ;
-            else if (columna1 < min1)
-                min1 = columna1;
-            if (columna2 > max2)
-                max2 = columna2;
-            else if (columna2 < min2)
-                min2 = columna2;
-            if (columna3 > max3)
-                max3 = columna3;
-            else if (columna3 < min3)
-                min3 = columna3;
-            if (columna4 > max4)
-                max4 = columna4;
-            else if (columna4 < min4)
-                min4 = columna4;
-        }
-*/
+
         t1.join(); t2.join(); t3.join(); t4.join();
         t5.join(); t6.join(); t7.join(); t8.join();
         t9.join(); t10.join(); t11.join(); t12.join();
@@ -219,7 +192,7 @@ public class LectorB extends Thread {
         numeros1max [18] = t19.max1;
         numeros1max [19] = t20.max1; 
 
-        for (int j = 0; j <= numeros1max.length; j++) {
+        for (int j = 0; j < numeros1max.length; j++) {
             if ( numeros1max[j]> max1)
                 max1 = numeros1max[j];
         }
@@ -245,7 +218,7 @@ public class LectorB extends Thread {
         numeros2max [18] = t19.max2;
         numeros2max [19] = t20.max2;
 
-        for (int j = 0; j <= numeros2max.length; j++) {
+        for (int j = 0; j < numeros2max.length; j++) {
             if ( numeros2max[j]> max2)
                 max2 = numeros2max[j];
         }
@@ -271,7 +244,7 @@ public class LectorB extends Thread {
         numeros3max [18] = t19.max3;
         numeros3max [19] = t20.max3;
 
-        for (int j = 0; j <= numeros3max.length; j++) {
+        for (int j = 0; j < numeros3max.length; j++) {
             if ( numeros3max[j]> max3)
                 max3 = numeros3max[j];
         }
@@ -297,7 +270,7 @@ public class LectorB extends Thread {
         numeros4max [18] = t19.max4;
         numeros4max [19] = t20.max4;
 
-        for (int j = 0; j <= numeros4max.length; j++) {
+        for (int j = 0; j < numeros4max.length; j++) {
             if ( numeros4max[j]> max4)
                 max4 = numeros4max[j];
         }
@@ -323,7 +296,7 @@ public class LectorB extends Thread {
         numeros1min [18] = t19.min1;
         numeros1min [19] = t20.min1;
 
-        for (int j = 0; j <= numeros1min.length; j++) {
+        for (int j = 0; j < numeros1min.length; j++) {
             if ( numeros1min[j]<min1 )
                 min1 = numeros1min[j];
         }
@@ -349,7 +322,7 @@ public class LectorB extends Thread {
         numeros2min [18] = t19.min2;
         numeros2min [19] = t20.min2;
 
-        for (int j = 0; j <= numeros2min.length; j++) {
+        for (int j = 0; j < numeros2min.length; j++) {
             if ( numeros2min[j]<min2 )
                 min2 = numeros2min[j];
         }
@@ -375,7 +348,7 @@ public class LectorB extends Thread {
         numeros3min [18] = t19.min3;
         numeros3min [19] = t20.min3; 
 
-        for (int j = 0; j <= numeros3min.length; j++) {
+        for (int j = 0; j < numeros3min.length; j++) {
             if ( numeros3min[j]<min3 )
                 min3 = numeros3min[j];
         }
@@ -401,12 +374,19 @@ public class LectorB extends Thread {
         numeros4min [18] = t19.min4;
         numeros4min [19] = t20.min4;
 
-        for (int j = 0; j <= numeros4min.length; j++) {
+        for (int j = 0; j < numeros4min.length; j++) {
             if ( numeros4min[j]<min4 )
                 min4 = numeros4min[j];
         }
 
-        System.out.println("WOWO:"+t1.max1);
+        System.out.println("El maximo de la columna uno es:"+max1+'\n'+
+            "El minimo de la columna uno es:"+min1+'\n'+
+            "El maximo de la columna uno es:"+max2+'\n'+
+            "El minimo de la columna uno es:"+min2+'\n'+
+            "El maximo de la columna uno es:"+max3+'\n'+
+            "El minimo de la columna uno es:"+min3+'\n'+
+            "El maximo de la columna uno es:"+max4+'\n'+
+            "El minimo de la columna uno es:"+min4);
         System.out.println(System.currentTimeMillis() - inicioPro + " milisegundos");
 
     }
