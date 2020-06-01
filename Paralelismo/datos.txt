@@ -1,0 +1,12 @@
+El maximo de la columna uno es:255310
+El minimo de la columna uno es:34520
+------------------------------------
+El maximo de la columna dos es:255470
+El minimo de la columna dos es:35040
+------------------------------------
+El maximo de la columna tres es:255250
+El minimo de la columna tres es:34080
+------------------------------------
+El maximo de la columna cuatro es:255410
+El minimo de la columna cuatro es:34520
+------------------------------------
