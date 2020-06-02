@@ -9,13 +9,15 @@ import java.io.FileReader;
 public class Lector {
     
     long tamaño = 0;
+    String argu;
 
     public long getTamaño() {
         File archivo = null;
         FileReader lector = null;
         BufferedReader br = null;
+        argu = Core.arg;
         try {
-            archivo = new File ("DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            archivo = new File (argu);
             lector = new FileReader (archivo);
             br = new BufferedReader(lector);
             tamaño = br.lines().count();

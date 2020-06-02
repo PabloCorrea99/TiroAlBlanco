@@ -3,6 +3,7 @@ import java.util.Scanner;
 // Esta clase es la clase principal que se encarga de seleccionar que punto se va a ejectutar.
 public class Core {
     public static void main(String[] args) throws InterruptedException {
+        String arg;
         Scanner sc = new Scanner(System.in);
         System.out.println("Para ejecutar el programa tienes 3 opciones de ejecución:");
         System.out.println("Ingresar el número 1 : Punto A");
@@ -22,7 +23,7 @@ public class Core {
         // ultimo se imprimen los resultados.
         if (seleccion == 1){
             long inicio = System.currentTimeMillis();
-            valores = lector.lectura("DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            valores = lector.lectura(arg);
             max_min = procesador.procesar(valores);
             System.out.println("El maximo de la columna uno es:"+max_min[0]+'\n'+
             "El minimo de la columna uno es:"+max_min[1]+'\n'+
