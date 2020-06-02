@@ -5,5 +5,6 @@ src/Core.class: src/Core.java
 	
 clean:
 	$(RM) src/*.class Core.jar
-run:
-	java src/Core prueba.asm
+	
+run: $(Core).class
+	$(java) $(Core)
