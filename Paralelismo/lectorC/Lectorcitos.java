@@ -1,14 +1,7 @@
 package TiroAlBlanco.paralelismo.lectorC;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-
 public class Lectorcitos extends Thread {
-
-    private int inicio;
-    private int fin;
-    private long lineas;
+    public String[] lineas;
     public double max1;
     public double max2;
     public double max3;
@@ -18,21 +11,13 @@ public class Lectorcitos extends Thread {
     public double min3;
     public double min4;
 
-    public Lectorcitos(int inicio, int fin, long lineas){
-        this.inicio = inicio;
-        this.fin = fin;
+    public Lectorcitos(String[] lineas){
         this.lineas = lineas;
     }
 
     @Override
     public void run(){       
-        File archivo = null;
-        FileReader lector = null;
-        BufferedReader br = null;           
         try {
-            archivo = new File("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
-            lector = new FileReader(archivo);
-            br = new BufferedReader(lector);
             String linea;
             String valor [];
             double columna1;
@@ -50,7 +35,6 @@ public class Lectorcitos extends Thread {
             min2 = 10.0;
             min3 = 10.0;
             min4 = 10.0;
-            br.skip(lineas * 54);
             for (int i = inicio; i <= fin ; i++) {
                 valor = br.readLine().split(";");
                 columna1 =  Double.parseDouble(valor [2]);
@@ -113,26 +97,26 @@ public class Lectorcitos extends Thread {
 
         long inicioPro = System.currentTimeMillis();
 
-        LectorB t1 = new LectorB(2, x, 0);
-        LectorB t2 = new LectorB(x + 1, (2 * x), x);
-        LectorB t3 = new LectorB((x * 2) + 1, (3 * x), x * 2);
-        LectorB t4 = new LectorB((x * 3) + 1, (4 * x), x * 3);
-        LectorB t5 = new LectorB((x * 4) + 1, (5 * x), x * 4);
-        LectorB t6 = new LectorB((x * 5) + 1, (6 * x), x * 5);
-        LectorB t7 = new LectorB((x * 6) + 1, (7 * x), x * 6);
-        LectorB t8 = new LectorB((x * 7) + 1, (8 * x), x * 7);
-        LectorB t9 = new LectorB((x * 8) + 1, (9 * x), x * 8);
-        LectorB t10 = new LectorB((x * 9) + 1, (10 * x), x * 9);
-        LectorB t11 = new LectorB((x * 10) + 1, (11 * x), x * 10);
-        LectorB t12 = new LectorB((x * 11) + 1, (12 * x), x * 11);
-        LectorB t13 = new LectorB((x * 12) + 1, (13 * x), x * 12);
-        LectorB t14 = new LectorB((x * 13) + 1, (14 * x), x * 13);
-        LectorB t15 = new LectorB((x * 14) + 1, (15 * x), x * 14);
-        LectorB t16 = new LectorB((x * 15) + 1, (16 * x), x * 15);
-        LectorB t17 = new LectorB((x * 16) + 1, (17 * x), x * 16);
-        LectorB t18 = new LectorB((x * 17) + 1, (18 * x), x * 17);
-        LectorB t19 = new LectorB((x * 18) + 1, (19 * x), x * 18);
-        LectorB t20 = new LectorB((x * 19) + 1, 1116772 , x * 19);
+        Lectorcitos t1 = new Lectorcitos(2, x, 0);
+        Lectorcitos t2 = new Lectorcitos(x + 1, (2 * x), x);
+        Lectorcitos t3 = new Lectorcitos((x * 2) + 1, (3 * x), x * 2);
+        Lectorcitos t4 = new Lectorcitos((x * 3) + 1, (4 * x), x * 3);
+        Lectorcitos t5 = new Lectorcitos((x * 4) + 1, (5 * x), x * 4);
+        Lectorcitos t6 = new Lectorcitos((x * 5) + 1, (6 * x), x * 5);
+        Lectorcitos t7 = new Lectorcitos((x * 6) + 1, (7 * x), x * 6);
+        Lectorcitos t8 = new Lectorcitos((x * 7) + 1, (8 * x), x * 7);
+        Lectorcitos t9 = new Lectorcitos((x * 8) + 1, (9 * x), x * 8);
+        Lectorcitos t10 = new Lectorcitos((x * 9) + 1, (10 * x), x * 9);
+        Lectorcitos t11 = new Lectorcitos((x * 10) + 1, (11 * x), x * 10);
+        Lectorcitos t12 = new Lectorcitos((x * 11) + 1, (12 * x), x * 11);
+        Lectorcitos t13 = new Lectorcitos((x * 12) + 1, (13 * x), x * 12);
+        Lectorcitos t14 = new Lectorcitos((x * 13) + 1, (14 * x), x * 13);
+        Lectorcitos t15 = new Lectorcitos((x * 14) + 1, (15 * x), x * 14);
+        Lectorcitos t16 = new Lectorcitos((x * 15) + 1, (16 * x), x * 15);
+        Lectorcitos t17 = new Lectorcitos((x * 16) + 1, (17 * x), x * 16);
+        Lectorcitos t18 = new Lectorcitos((x * 17) + 1, (18 * x), x * 17);
+        Lectorcitos t19 = new Lectorcitos((x * 18) + 1, (19 * x), x * 18);
+        Lectorcitos t20 = new Lectorcitos((x * 19) + 1, 1116772 , x * 19);
 
         t1.start();
         t2.start();

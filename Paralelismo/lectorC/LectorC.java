@@ -1,4 +1,4 @@
-package TiroAlBlanco.paralelismo.lectorC;
+package Paralelismo.lectorC;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,7 +6,7 @@ import java.io.FileReader;
 
 public class LectorC extends Thread{
   
-        public String [] linea;
+        public static String [] linea;
 
         @Override
         public void run(){       
@@ -17,7 +17,7 @@ public class LectorC extends Thread{
                 archivo = new File("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
                 lector = new FileReader(archivo);
                 br = new BufferedReader(lector);
-                linea = new String [116772];
+                LectorC.linea = new String[1116772];
 
 
                 for (int i = 1; i <= 1116772 ; i++) {
@@ -41,13 +41,15 @@ public class LectorC extends Thread{
         public static void main(String[] args) throws InterruptedException {
 
             long inicioPro = System.currentTimeMillis();
-    
+
             LectorC t1 = new LectorC();
     
             t1.start();
-            t1.join(); 
 
+            t1.join();
             
+            Lectorcitos h1 = new Lectorcitos(linea);                
+
             System.out.println(System.currentTimeMillis() - inicioPro + " milisegundos");
     
         }
