@@ -1,10 +1,6 @@
 class Laser {
 
     field int x, y;
-    field int lengthx, lengthy;
-
-    field int d, straightD;
-    field boolean positivey;
 
     field int topWall;
 
@@ -14,6 +10,7 @@ class Laser {
 
     field boolean unico, colision;
 
+    // Construye un nuevo laser con la ubicación y los valores de los muros.
     constructor Laser new(int Ax, int Ay, int AtopWall) {    	
 	    let x = Ax;		
 	    let y = Ay;
@@ -22,68 +19,82 @@ class Laser {
         return this;
     }
 
+    // Desasigna la memoria del laser.
      method void dispose() {
         do Memory.deAlloc(this);
         return;
     }
 
+    // Muestra el laser.
     method void show() {
         do Screen.setColor(true);
         do draw();
         return;
     }
 
+    // Esconde el Laser.
     method void hide() {
         do Screen.setColor(false);
 	    do draw();
         return;
     }
 
+    // Dibuja el Laser.
     method void draw() {
 	    do Screen.drawRectangle(x, y, x + 5, y + 5);
 	    return;
     }
 
+    // Devuelve el borde izquierdo del laser.
     method int getLeft() {
         return x;
     }
 
+    // Devuelve el borde derecho del laser.
     method int getRight() {
         return x + 5;
     }
 
+    // Devuelve el borde superior del laser.
     method int getTop() {
         return y;
     }
 
+    // Devuelve el borde inferior del laser.
     method int getBottom() {
         return y + 5; 
     }
 
+    // Cambia la posicion del laser.
     method void setX(int posx) {
         let x = posx;
         return;
     }
 
+    // Establece la direccion del laser.
     method void setDirection(int Adirection) {
         let direction = Adirection;
         return;
     }
 
+    // Establece el estado del laser.
     method void setUnico(boolean Aunico) {
         let unico = Aunico;
         return;
     }
 
+    // Retorna el estado del laser.
     method boolean getUnico() {
         return unico;
     }
 
+    // Establece la colision.
     method void setColision() {
         let colision = true;
         return;
     }
 
+    // Mueve el laser una unidad hacia su destino.
     method void move() {
 
         if (direction = 1) {

@@ -45,6 +45,8 @@ class Ball {
     // Dibuja la bola.
     method void draw() {
 	    do Screen.drawRectangle(x, y, x + 20, y + 20);
+        do Output.moveCursor(22,20);
+        do Output.printInt(x);
 	    return;
     }
 
@@ -93,6 +95,8 @@ class Ball {
 	    return;
     }
 
+
+    // Cambia el valor de la x
     method void setX(int Ax) {
         let x = Ax;
         return;
@@ -150,26 +154,29 @@ class Ball {
         return;
     }
 
+
+    // Cuando la pelota es impactada por el laser
+    // cambia la posicion incial de aparicion.
     method void ballBoom() {
 
         if (x < 128) {
             do setX(256);
-            do bounce(400);
+            do bounce(500);
         }
         if ( ((x > 128) | (x = 128)) & (x < 256) )  {
-            do setX(450);
+            do setX(480);
             do bounce(1);
         }
         if ( ((x > 256) | (x = 256)) & (x < 384) )  {
-            do setX(20);
+            do setX(0);
             do bounce(500);
         }
         if ( ((x > 384) | (x = 384)) & (x < 512) )  {
-            do setX(256);
-            do bounce(1);
+            do setX(0);
+            do bounce(500);
         }
         else {
-            do setX(450);
+            do setX(480);
             do bounce(1);
         }
 
