@@ -1,4 +1,4 @@
-package TiroAlBlanco.organizado;
+package organizado;
 
 import java.util.Scanner;
 
@@ -11,13 +11,14 @@ public class Core {
         System.out.println("Ingresar el número 3 : Punto C");
         System.out.print("Tu opción es: ");
         int seleccion = sc.nextInt();
-        double [][] valores = new double [1116772][4];
-        double [] max_min = new double [8];
         Lector lector = new Lector();
+        long tamaño = lector.getTamaño();
+        double [][] valores = new double [(int)tamaño][4];
+        double [] max_min = new double [8];
         Procesador procesador = new Procesador();
         if (seleccion == 1){
             long inicio = System.currentTimeMillis();
-            valores = lector.lectura("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            valores = lector.lectura("C:/Users/s8pul/Desktop/DAT_ASCII_EURUSD_M1_2017_2019.csv");
             max_min = procesador.procesar(valores);
             System.out.println("El maximo de la columna uno es:"+max_min[0]+'\n'+
             "El minimo de la columna uno es:"+max_min[1]+'\n'+
@@ -100,7 +101,8 @@ public class Core {
             Procesador comparador = new Procesador();
             comparador.procesar(subresultados);
             */
-            int x = 55830;
+            int numero_hilos = 20;
+            int x = (int)tamaño/numero_hilos;
 
             MultiProcesador t1 = new MultiProcesador(2, x, 0);
             MultiProcesador t2 = new MultiProcesador(x + 1, (2 * x), x);
@@ -121,7 +123,7 @@ public class Core {
             MultiProcesador t17 = new MultiProcesador((x * 16) + 1, (17 * x), x * 16);
             MultiProcesador t18 = new MultiProcesador((x * 17) + 1, (18 * x), x * 17);
             MultiProcesador t19 = new MultiProcesador((x * 18) + 1, (19 * x), x * 18);
-            MultiProcesador t20 = new MultiProcesador((x * 19) + 1, 1116772 , x * 19);
+            MultiProcesador t20 = new MultiProcesador((x * 19) + 1, (int)tamaño , x * 19);
 
             t1.start(); t2.start(); t3.start(); t4.start();
             t5.start(); t6.start(); t7.start(); t8.start();

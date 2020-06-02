@@ -1,18 +1,37 @@
-package TiroAlBlanco.organizado;
+package organizado;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 public class Lector {
+    
+    long tamaño = 0;
+
+    public long getTamaño() {
+        File archivo = null;
+        FileReader lector = null;
+        BufferedReader br = null;
+        try {
+            archivo = new File ("C:/Users/s8pul/Desktop/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            lector = new FileReader (archivo);
+            br = new BufferedReader(lector);
+            tamaño = br.lines().count();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return tamaño;
+    }
 
     public synchronized double [][] lectura (String direccion){
         File archivo = null;
         FileReader lector = null;
         BufferedReader br = null;
-        double [][] valores = new double [1116772][4];
+        double [][] valores;
+        double [][] aux = new double [0][0];
         try {
             archivo = new File (direccion);
             lector = new FileReader (archivo);
             br = new BufferedReader(lector);
+            valores = new double [(int)tamaño][4];
             String linea;
             String [] secciones = new String [7];
             int i = 0; 
@@ -29,6 +48,7 @@ public class Lector {
                 valores [i][j] = Double.parseDouble(secciones[5]);
                 i++;
             }
+            return valores;
 
         }catch(Exception e){
             e.printStackTrace();
@@ -41,8 +61,7 @@ public class Lector {
                e2.printStackTrace();
             }
          }
-
-        return valores;
+        return aux;
     }
 
 }

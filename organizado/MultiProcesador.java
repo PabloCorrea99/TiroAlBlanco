@@ -1,4 +1,4 @@
-package TiroAlBlanco.organizado;
+package organizado;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -83,10 +83,9 @@ public class MultiProcesador extends Thread{
         FileReader lector = null;
         BufferedReader br = null;           
         try {
-            archivo = new File("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            archivo = new File("C:/Users/s8pul/Desktop/DAT_ASCII_EURUSD_M1_2017_2019.csv");
             lector = new FileReader(archivo);
             br = new BufferedReader(lector);
-            String linea;
             String valor [];
             double columna1;
             double columna2;
@@ -103,7 +102,7 @@ public class MultiProcesador extends Thread{
             min2 = 10.0;
             min3 = 10.0;
             min4 = 10.0;
-            br.skip(lineas * 54);
+            br.skip(lineas * 55);
             for (int i = inicio; i <= fin ; i++) {
                 valor = br.readLine().split(";");
                 columna1 =  Double.parseDouble(valor [2]);

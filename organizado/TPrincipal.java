@@ -1,10 +1,11 @@
-package TiroAlBlanco.organizado;
+package organizado;
 
-public class TPrincipal extends Thread{
-    public double [][] valores = new double [1116772][4];
+public class TPrincipal extends Thread {
     private Lector lector = new Lector(); 
+    public long tamaño = lector.getTamaño();
+    public double [][] valores = new double [(int)tamaño][4];
 
     public void run(){
-        this.valores = lector.lectura("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+        this.valores = lector.lectura("C:/Users/s8pul/Desktop/DAT_ASCII_EURUSD_M1_2017_2019.csv");
     }
 }
