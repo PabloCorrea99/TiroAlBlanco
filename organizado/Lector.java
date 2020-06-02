@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-// Esta clase lee el archivo que se le esta especificando y lo guarda en una matriz
+// Esta clase lee el archivo que se le esta especificando y lo guarda en una matriz,
+// tambien tiene un metodo que obtiene el tamaño del archivo que se le esta pasando.
 public class Lector {
     
     long tamaño = 0;

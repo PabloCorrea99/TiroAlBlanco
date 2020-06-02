@@ -1,5 +1,9 @@
 package organizado;
 
+// Esta clase esta siendo utilizada en los puntos A y C, y
+// es la encargada de recibir una matriz con los datos a analizar
+// y procesarlos para saber cual de ellos es el maximo y el minimo total,
+// luego devuelve los 8 datos maximos y minimos.
 public class Procesador {
     public double [] procesar (double [][] valores){
         double [] resultados = new double [8];

@@ -1,5 +1,9 @@
 package organizado;
 
+// Esta clase recibe cada uno de los arreglos que devuelven los hilos y los
+// analiza para devolver el maximo y el minimo de cada una de las columnas.
+// Esto lo hace por medio de dos metodos diferentes para optimizar el recorrido
+// de los arreglos, uno para los maximos y otro para los minimos.
 public class Optimizador {
 
     public void optimizarMax(double t1,double t2,double t3,double t4,
@@ -40,7 +44,7 @@ public class Optimizador {
         }
         System.out.println("El maximo de la columna "+turno+" es:" + max);
     }
-public void optimizarMin(double t1,double t2,double t3,double t4,
+    public void optimizarMin(double t1,double t2,double t3,double t4,
         double t5,double t6,double t7,double t8,double t9,double t10,
         double t11,double t12,double t13,double t14,double t15,
         double t16,double t17,double t18,double t19,double t20,

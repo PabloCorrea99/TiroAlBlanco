@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+// Esta clase define el comportamiento que va a tener cada uno de los hilos para el punto B.
+// Cada uno de los hilos abre el archivo, lee la parte que le corresponde y guarda los datos 
+// en un array y entre esos datos calcula cual es el maximo y cual es el minimo para cada una de las columnas.
 public class MultiProcesador extends Thread{
     /*
     public int inicio, fin;

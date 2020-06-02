@@ -1,5 +1,9 @@
 package organizado;
 
+// Esta clase es la que define el comportamiento de los hilos secundarios del punto C.
+// Estos hilos reciben una matriz y analizan la parte que les corresponde de la misma
+// definiendo asi una serie de subrresultados que son los valores maximos y minimos de
+// la parte de la matriz que se les entregó y los devuelven.
 public class TSecundario extends Thread {
     
     public int inicio, fin;
