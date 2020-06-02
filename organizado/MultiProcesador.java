@@ -1,6 +1,11 @@
-package organizado;
+package TiroAlBlanco.organizado;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class MultiProcesador extends Thread{
+    /*
     public int inicio, fin;
     public double [] subresultados;
     private Lector lector = new Lector(); 
@@ -12,7 +17,7 @@ public class MultiProcesador extends Thread{
         this.fin = fin;
     }
     public void run(){
-        valores = lector.lectura("C:/cygwin64/home/spulgarinv/st0254/254sspulgarinv/Nand2Tetris/nand2tetris/tool/TiroAlBlanco/Paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+        valores = lector.lectura("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
         double max1 = 0;
         double max2 = 0;
         double max3 = 0;
@@ -53,5 +58,95 @@ public class MultiProcesador extends Thread{
         this.subresultados[6] = max4;
         this.subresultados[7] = min4;
         
+    }*/
+    private int inicio;
+    private int fin;
+    private long lineas;
+    public double max1;
+    public double max2;
+    public double max3;
+    public double max4;
+    public double min1;
+    public double min2;
+    public double min3;
+    public double min4;
+
+    public MultiProcesador(int inicio, int fin, long lineas){
+        this.inicio = inicio;
+        this.fin = fin;
+        this.lineas = lineas;
+    }
+
+    @Override
+    public void run(){       
+        File archivo = null;
+        FileReader lector = null;
+        BufferedReader br = null;           
+        try {
+            archivo = new File("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            lector = new FileReader(archivo);
+            br = new BufferedReader(lector);
+            String linea;
+            String valor [];
+            double columna1;
+            double columna2;
+            double columna3;
+            double columna4;
+            double max1, max2, max3, max4;
+            double min1, min2, min3, min4;
+            valor = new String[7];
+            max1 = 0;
+            max2 = 0;
+            max3 = 0;
+            max4 = 0;
+            min1 = 10.0;
+            min2 = 10.0;
+            min3 = 10.0;
+            min4 = 10.0;
+            br.skip(lineas * 54);
+            for (int i = inicio; i <= fin ; i++) {
+                valor = br.readLine().split(";");
+                columna1 =  Double.parseDouble(valor [2]);
+                columna2 =  Double.parseDouble(valor [3]);
+                columna3 =  Double.parseDouble(valor [4]);
+                columna4 =  Double.parseDouble(valor [5]);
+                if (columna1 > max1)
+                    max1 = columna1;
+                else if (columna1 < min1)
+                    min1 = columna1;
+                if (columna2 > max2)
+                    max2 = columna2;
+                else if (columna2 < min2)
+                    min2 = columna2;
+                if (columna3 > max3)
+                    max3 = columna3;
+                else if (columna3 < min3)
+                    min3 = columna3;
+                if (columna4 > max4)
+                    max4 = columna4;
+                else if (columna4 < min4)
+                    min4 = columna4;
+            }
+            this.max1 = max1;
+            this.max2 = max2;
+            this.max3 = max3;
+            this.max4 = max4;
+            this.min1 = min1;
+            this.min2 = min2;
+            this.min3 = min3;
+            this.min4 = min4;
+            
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try{
+                if(null != lector) {
+                    lector.close(); 
+                    
+                }
+            }catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }
