@@ -1,4 +1,4 @@
-package organizado;
+package Paralelismo.src;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ public class Core {
         System.out.println("Ingresar el número 2 : Punto B");
         System.out.println("Ingresar el número 3 : Punto C");
         System.out.print("Tu opción es: ");
-        int seleccion = sc.nextInt();
+        int seleccion = sc.nextInt();                       // Scanner que espera una respuesta del usuario para proceder a ejecutar el codigo.
         sc.close();
         Lector lector = new Lector();                       // Nueva instancia de Lector.
         long tamaño = lector.getTamaño();                   // Obtenemos el tamaño del archivo que se esta leyendo.

@@ -1,4 +1,4 @@
-package TiroAlBlanco.paralelismo.lectorC;
+package regular.lectorC;
 
 public class Lectorcitos extends Thread {
     public String[] lineas;

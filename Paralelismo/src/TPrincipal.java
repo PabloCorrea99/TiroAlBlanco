@@ -1,4 +1,4 @@
-package organizado;
+package Paralelismo.src;
 
 // Esta clase es utilizada para el punto C y define el comportamiento del hilo
 // principal del programa, por lo tanto solo debe leer el archivo y entregar 

@@ -1,4 +1,4 @@
-package TiroAlBlanco.paralelismo.lectorC;
+package regular.lectorC;
 
 import java.io.BufferedReader;
 import java.io.File;

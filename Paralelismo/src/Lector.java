@@ -1,4 +1,4 @@
-package organizado;
+package Paralelismo.src;
 
 import java.io.File;
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package organizado;
+package Paralelismo.src;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,6 +8,7 @@ import java.io.FileReader;
 // Cada uno de los hilos abre el archivo, lee la parte que le corresponde y guarda los datos 
 // en un array y entre esos datos calcula cual es el maximo y cual es el minimo para cada una de las columnas.
 public class MultiProcesador extends Thread{
+
     /*
     public int inicio, fin;
     public double [] subresultados;
@@ -60,8 +61,8 @@ public class MultiProcesador extends Thread{
         this.subresultados[5] = min3;
         this.subresultados[6] = max4;
         this.subresultados[7] = min4;
-        
     }*/
+    
     private int inicio;
     private int fin;
     private long lineas;
