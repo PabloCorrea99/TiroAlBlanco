@@ -208,7 +208,8 @@ public class Core {
             rey.start();
             rey.join();
             valores = rey.valores;
-            int x = 55830;
+            int numero_hilos = 20;
+            int x = (int)tamaño/numero_hilos;
 
             TSecundario t1 = new TSecundario(valores, 0, x);
             TSecundario t2 = new TSecundario(valores, x+1, x*2);
@@ -229,7 +230,7 @@ public class Core {
             TSecundario t17 = new TSecundario(valores, (x*16)+1, x*17);
             TSecundario t18 = new TSecundario(valores, (x*17)+1, x*18);
             TSecundario t19 = new TSecundario(valores, (x*18)+1, x*19);
-            TSecundario t20 = new TSecundario(valores, (x*19)+1, 1116772);
+            TSecundario t20 = new TSecundario(valores, (x*19)+1, (int)tamaño);
             
             t1.start(); t2.start(); t3.start(); t4.start();
             t5.start(); t6.start(); t7.start(); t8.start();
