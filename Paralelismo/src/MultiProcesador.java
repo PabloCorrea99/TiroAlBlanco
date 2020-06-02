@@ -108,30 +108,58 @@ public class MultiProcesador extends Thread{
             min2 = 10.0;
             min3 = 10.0;
             min4 = 10.0;
-            br.skip(lineas * 55);
-            for (int i = inicio; i <= fin ; i++) {
-                valor = br.readLine().split(";");
-                columna1 =  Double.parseDouble(valor [2]);
-                columna2 =  Double.parseDouble(valor [3]);
-                columna3 =  Double.parseDouble(valor [4]);
-                columna4 =  Double.parseDouble(valor [5]);
-                if (columna1 > max1)
-                    max1 = columna1;
-                else if (columna1 < min1)
-                    min1 = columna1;
-                if (columna2 > max2)
-                    max2 = columna2;
-                else if (columna2 < min2)
-                    min2 = columna2;
-                if (columna3 > max3)
-                    max3 = columna3;
-                else if (columna3 < min3)
-                    min3 = columna3;
-                if (columna4 > max4)
-                    max4 = columna4;
-                else if (columna4 < min4)
-                    min4 = columna4;
+            try{
+                br.skip(lineas * 54);
+                for (int i = inicio; i <= fin ; i++) {
+                    valor = br.readLine().split(";");
+                    columna1 =  Double.parseDouble(valor [2]);
+                    columna2 =  Double.parseDouble(valor [3]);
+                    columna3 =  Double.parseDouble(valor [4]);
+                    columna4 =  Double.parseDouble(valor [5]);
+                    if (columna1 > max1)
+                        max1 = columna1;
+                    else if (columna1 < min1)
+                        min1 = columna1;
+                    if (columna2 > max2)
+                        max2 = columna2;
+                    else if (columna2 < min2)
+                        min2 = columna2;
+                    if (columna3 > max3)
+                        max3 = columna3;
+                    else if (columna3 < min3)
+                        min3 = columna3;
+                    if (columna4 > max4)
+                        max4 = columna4;
+                    else if (columna4 < min4)
+                        min4 = columna4;
+                }
+            }catch(Exception ArrayIndexOutOfBoundsException ){
+                br.skip(lineas * 55);
+                for (int i = inicio; i <= fin ; i++) {
+                    valor = br.readLine().split(";");
+                    columna1 =  Double.parseDouble(valor [2]);
+                    columna2 =  Double.parseDouble(valor [3]);
+                    columna3 =  Double.parseDouble(valor [4]);
+                    columna4 =  Double.parseDouble(valor [5]);
+                    if (columna1 > max1)
+                        max1 = columna1;
+                    else if (columna1 < min1)
+                        min1 = columna1;
+                    if (columna2 > max2)
+                        max2 = columna2;
+                    else if (columna2 < min2)
+                        min2 = columna2;
+                    if (columna3 > max3)
+                        max3 = columna3;
+                    else if (columna3 < min3)
+                        min3 = columna3;
+                    if (columna4 > max4)
+                        max4 = columna4;
+                    else if (columna4 < min4)
+                        min4 = columna4;
+                }
             }
+
             this.max1 = max1;
             this.max2 = max2;
             this.max3 = max3;
