@@ -66,6 +66,7 @@ public class MultiProcesador extends Thread{
     private int inicio;
     private int fin;
     private long lineas;
+    private String direccion;
     public double max1;
     public double max2;
     public double max3;
@@ -75,10 +76,11 @@ public class MultiProcesador extends Thread{
     public double min3;
     public double min4;
 
-    public MultiProcesador(int inicio, int fin, long lineas){
+    public MultiProcesador(int inicio, int fin, long lineas, String direccion){
         this.inicio = inicio;
         this.fin = fin;
         this.lineas = lineas;
+        this.direccion = direccion;
     }
 
     @Override
@@ -87,7 +89,7 @@ public class MultiProcesador extends Thread{
         FileReader lector = null;
         BufferedReader br = null;           
         try {
-            archivo = new File("DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            archivo = new File(direccion);
             lector = new FileReader(archivo);
             br = new BufferedReader(lector);
             String valor [];
@@ -106,7 +108,7 @@ public class MultiProcesador extends Thread{
             min2 = 10.0;
             min3 = 10.0;
             min4 = 10.0;
-            br.skip(lineas * 54);
+            br.skip(lineas * 55);
             for (int i = inicio; i <= fin ; i++) {
                 valor = br.readLine().split(";");
                 columna1 =  Double.parseDouble(valor [2]);

@@ -1,14 +1,19 @@
 
-
 // Esta clase es utilizada para el punto C y define el comportamiento del hilo
 // principal del programa, por lo tanto solo debe leer el archivo y entregar 
 // una matriz con los datos del mismo.
 public class TPrincipal extends Thread {
-    private Lector lector = new Lector(); 
-    public long tamaño = lector.getTamaño();
+    public String direccion;
+    public long tamaño;
+    public Lector lector = new Lector(); 
     public double [][] valores = new double [(int)tamaño][4];
 
+    public TPrincipal(String archivo, long tamaño) {
+        this.direccion = archivo;
+        this.tamaño = tamaño;
+    }
+
     public void run(){
-        this.valores = lector.lectura("DAT_ASCII_EURUSD_M1_2017_2019.csv");
+        this.valores = lector.lectura(direccion);
     }
 }

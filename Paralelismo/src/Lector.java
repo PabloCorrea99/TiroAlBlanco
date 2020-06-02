@@ -8,16 +8,14 @@ import java.io.FileReader;
 // tambien tiene un metodo que obtiene el tamaño del archivo que se le esta pasando.
 public class Lector {
     
-    long tamaño = 0;
-    String argu;
+    public long tamaño;
 
-    public long getTamaño() {
+    public long getTamaño(String direccion) {
         File archivo = null;
         FileReader lector = null;
         BufferedReader br = null;
-        argu = Core.arg;
         try {
-            archivo = new File (argu);
+            archivo = new File (direccion);
             lector = new FileReader (archivo);
             br = new BufferedReader(lector);
             tamaño = br.lines().count();
@@ -37,13 +35,13 @@ public class Lector {
             archivo = new File (direccion);
             lector = new FileReader (archivo);
             br = new BufferedReader(lector);
+            tamaño = getTamaño(direccion);
             valores = new double [(int)tamaño][4];
             String linea;
             String [] secciones = new String [7];
             int i = 0; 
             int j;
             while((linea=br.readLine())!=null){
-
                 j=0;
                 secciones =  linea.split(";");
                 valores [i][j] = Double.parseDouble(secciones[2]);
