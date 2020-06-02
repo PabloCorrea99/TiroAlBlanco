@@ -1,7 +1,7 @@
 package TiroAlBlanco.paralelismo.lectorC;
 
 public class Lectorcitos extends Thread {
-    public static String[] lineas;
+    public String[] lineas;
     public int inicio;
     public int fin;
     public double max1;
@@ -21,68 +21,54 @@ public class Lectorcitos extends Thread {
 
     @Override
     public void run() {
-        try {
-            String linea;
-            String valor[];
-            double columna1;
-            double columna2;
-            double columna3;
-            double columna4;
-            double max1, max2, max3, max4;
-            double min1, min2, min3, min4;
-            valor = new String[7];
-            max1 = 0;
-            max2 = 0;
-            max3 = 0;
-            max4 = 0;
-            min1 = 10.0;
-            min2 = 10.0;
-            min3 = 10.0;
-            min4 = 10.0;
-            for (int i = inicio; i <= fin; i++) {
-                valor = br.readLine().split(";");
-                columna1 = Double.parseDouble(valor[2]);
-                columna2 = Double.parseDouble(valor[3]);
-                columna3 = Double.parseDouble(valor[4]);
-                columna4 = Double.parseDouble(valor[5]);
-                if (columna1 > max1)
-                    max1 = columna1;
-                else if (columna1 < min1)
-                    min1 = columna1;
-                if (columna2 > max2)
-                    max2 = columna2;
-                else if (columna2 < min2)
-                    min2 = columna2;
-                if (columna3 > max3)
-                    max3 = columna3;
-                else if (columna3 < min3)
-                    min3 = columna3;
-                if (columna4 > max4)
-                    max4 = columna4;
-                else if (columna4 < min4)
-                    min4 = columna4;
-            }
-            this.max1 = max1;
-            this.max2 = max2;
-            this.max3 = max3;
-            this.max4 = max4;
-            this.min1 = min1;
-            this.min2 = min2;
-            this.min3 = min3;
-            this.min4 = min4;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (null != lector) {
-                    lector.close();
-
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        String linea;
+        String valor[];
+        double columna1;
+        double columna2;
+        double columna3;
+        double columna4;
+        double max1, max2, max3, max4;
+        double min1, min2, min3, min4;
+        valor = new String[7];
+        max1 = 0;
+        max2 = 0;
+        max3 = 0;
+        max4 = 0;
+        min1 = 10.0;
+        min2 = 10.0;
+        min3 = 10.0;
+        min4 = 10.0;
+        for (int i = inicio; i <= fin; i++) {
+            valor = split(";");
+            columna1 = Double.parseDouble(valor[2]);
+            columna2 = Double.parseDouble(valor[3]);
+            columna3 = Double.parseDouble(valor[4]);
+            columna4 = Double.parseDouble(valor[5]);
+            if (columna1 > max1)
+                max1 = columna1;
+            else if (columna1 < min1)
+                min1 = columna1;
+            if (columna2 > max2)
+                max2 = columna2;
+            else if (columna2 < min2)
+                min2 = columna2;
+            if (columna3 > max3)
+                max3 = columna3;
+            else if (columna3 < min3)
+                min3 = columna3;
+            if (columna4 > max4)
+                max4 = columna4;
+            else if (columna4 < min4)
+                min4 = columna4;
         }
+        this.max1 = max1;
+        this.max2 = max2;
+        this.max3 = max3;
+        this.max4 = max4;
+        this.min1 = min1;
+        this.min2 = min2;
+        this.min3 = min3;
+        this.min4 = min4;
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -99,27 +85,6 @@ public class Lectorcitos extends Thread {
         numeros4min = new double[20];
 
         long inicioPro = System.currentTimeMillis();
-
-        Lectorcitos t1 = new Lectorcitos(lineas, 0, x);
-        Lectorcitos t2 = new Lectorcitos(lineas, x + 1, (x*2)+1);
-        Lectorcitos t3 = new Lectorcitos(lineas, );
-        Lectorcitos t4 = new Lectorcitos();
-        Lectorcitos t5 = new Lectorcitos();
-        Lectorcitos t6 = new Lectorcitos();
-        Lectorcitos t7 = new Lectorcitos();
-        Lectorcitos t8 = new Lectorcitos();
-        Lectorcitos t9 = new Lectorcitos();
-        Lectorcitos t10 = new Lectorcitos();
-        Lectorcitos t11 = new Lectorcitos();
-        Lectorcitos t12 = new Lectorcitos();
-        Lectorcitos t13 = new Lectorcitos();
-        Lectorcitos t14 = new Lectorcitos();
-        Lectorcitos t15 = new Lectorcitos();
-        Lectorcitos t16 = new Lectorcitos();
-        Lectorcitos t17 = new Lectorcitos();
-        Lectorcitos t18 = new Lectorcitos();
-        Lectorcitos t19 = new Lectorcitos();
-        Lectorcitos t20 = new Lectorcitos();
 
         t1.start();
         t2.start();

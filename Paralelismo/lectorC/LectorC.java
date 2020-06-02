@@ -1,4 +1,4 @@
-package Paralelismo.lectorC;
+package TiroAlBlanco.paralelismo.lectorC;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -48,7 +48,28 @@ public class LectorC extends Thread{
 
             t1.join();
             
-            Lectorcitos h1 = new Lectorcitos(linea, 0, 1116772);                
+            Lectorcitos h1 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h2 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h3 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h4 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h5 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h6 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h7 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h8 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h9 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h10 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h11 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h12 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h13 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h14 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h15 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h16 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h17 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h18 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h19 = new Lectorcitos(linea, 0, 1116772);
+            Lectorcitos h20 = new Lectorcitos(linea, 0, 1116772);
+
+                            
 
             System.out.println(System.currentTimeMillis() - inicioPro + " milisegundos");
     
