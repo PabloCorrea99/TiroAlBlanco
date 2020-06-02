@@ -2,6 +2,7 @@ package organizado;
 
 import java.util.Scanner;
 
+// Esta clase es la clase principal que se encarga de seleccionar que punto se va a ejectutar.
 public class Core {
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
@@ -11,14 +12,19 @@ public class Core {
         System.out.println("Ingresar el número 3 : Punto C");
         System.out.print("Tu opción es: ");
         int seleccion = sc.nextInt();
-        Lector lector = new Lector();
-        long tamaño = lector.getTamaño();
-        double [][] valores = new double [(int)tamaño][4];
-        double [] max_min = new double [8];
-        Procesador procesador = new Procesador();
+        sc.close();
+        Lector lector = new Lector();                       // Nueva instancia de Lector.
+        long tamaño = lector.getTamaño();                   // Obtenemos el tamaño del archivo que se esta leyendo.
+        double [][] valores = new double [(int)tamaño][4];  // Se crea y se inicializa una matriz del tamaño requerido para guardar los datos.
+        double [] max_min = new double [8];                 // Se crea y se inicializa un arreglo para guardar los datos maximos y los minimos.
+        Procesador procesador = new Procesador();           // Se inicializa y se crea un nuevo objeto procesador.
+
+        // Si se selecciona el Punto A, Se lee el archvo, se guardan los valores,
+        // se procesan para saber cual es el mayor y menor de cada columna y por
+        // ultimo se imprimen los resultados.
         if (seleccion == 1){
             long inicio = System.currentTimeMillis();
-            valores = lector.lectura("C:/Users/s8pul/Desktop/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            valores = lector.lectura("/Users/carlosmesa/Documents/Universidad/5SEMESTRE/Organizacion de computadores/Practica final/Codigo/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
             max_min = procesador.procesar(valores);
             System.out.println("El maximo de la columna uno es:"+max_min[0]+'\n'+
             "El minimo de la columna uno es:"+max_min[1]+'\n'+
@@ -31,8 +37,15 @@ public class Core {
             System.out.println(System.currentTimeMillis()-inicio + " milisegundos");
             
         }
+
+        // Si se selecciona el punto B, Se crean 20 hilos y cada uno lee una parte del archivo,
+        // guarda los valores en un array, luego cada uno de ellos procesa los datos para
+        // devolver los maximos y los minimos de la parte del archivo que les corresponde,
+        // por ultimo se llama a la clase optimizador para que compare los datos de los hilos
+        // y retorne el maximo y el minimo del archivo completo.
         else if(seleccion == 2){
             long inicioPro = System.currentTimeMillis();
+
         /*
             long inicio = System.currentTimeMillis();
             int x = 55830;
@@ -101,6 +114,7 @@ public class Core {
             Procesador comparador = new Procesador();
             comparador.procesar(subresultados);
             */
+
             int numero_hilos = 20;
             int x = (int)tamaño/numero_hilos;
 
@@ -179,8 +193,15 @@ public class Core {
                 "cuatro");
 
             System.out.println(System.currentTimeMillis() - inicioPro + " milisegundos");
-
         }
+
+        // Si se selecciona el punto C, Se crea un hilo principal para que lea todo el archivo
+        // y lo particione en la cantidad de hilos secundarios (20) para que estos hilos se 
+        // encarguen de procesar esta informacion para saber cual es el maximo y cual es el 
+        // minimo de cada una de las columnas y los retorne en una matriz de subresultados
+        // y luego se le pasa esta matriz al procesador para que analice cual de todos los
+        // valores es el mayor y el menor para cada una de las columnas, luego
+        // retorna estos valores y finalmente imprime estos resultados.
         else if(seleccion == 3){
             long inicio = System.currentTimeMillis();
             TPrincipal rey = new TPrincipal();
@@ -253,6 +274,7 @@ public class Core {
                 j++;
                 subresultados [i][j] =  hilos[i].subresultados[j];
             }
+            
             max_min = procesador.procesar(valores);
             System.out.println("El maximo de la columna uno es:"+max_min[0]+'\n'+
             "El minimo de la columna uno es:"+max_min[1]+'\n'+
@@ -264,6 +286,8 @@ public class Core {
             "El minimo de la columna cuatro es:"+max_min[7]);
             System.out.println(System.currentTimeMillis()-inicio + " milisegundos");
         }
+
+        // En caso de no seleccionar ningun valor valido (1,2,3) se imprime un mensaje de error
         else {
             System.out.println("ERROR: NO Ingreso uno de los 3 números");
             System.exit(1);

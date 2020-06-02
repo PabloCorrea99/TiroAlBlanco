@@ -1,7 +1,10 @@
 package organizado;
+
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
+
+// Esta clase lee el archivo que se le esta especificando y lo guarda en una matriz
 public class Lector {
     
     long tamaño = 0;
@@ -11,7 +14,7 @@ public class Lector {
         FileReader lector = null;
         BufferedReader br = null;
         try {
-            archivo = new File ("C:/Users/s8pul/Desktop/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            archivo = new File ("/Users/carlosmesa/Documents/Universidad/5SEMESTRE/Organizacion de computadores/Practica final/Codigo/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
             lector = new FileReader (archivo);
             br = new BufferedReader(lector);
             tamaño = br.lines().count();
@@ -37,6 +40,7 @@ public class Lector {
             int i = 0; 
             int j;
             while((linea=br.readLine())!=null){
+
                 j=0;
                 secciones =  linea.split(";");
                 valores [i][j] = Double.parseDouble(secciones[2]);
