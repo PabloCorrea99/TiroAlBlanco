@@ -1,4 +1,4 @@
-package Paralelismo.src;
+
 
 // Esta clase esta siendo utilizada en los puntos A y C, y
 // es la encargada de recibir una matriz con los datos a analizar

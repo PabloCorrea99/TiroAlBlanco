@@ -1,5 +1,3 @@
-package Paralelismo.src;
-
 import java.util.Scanner;
 
 // Esta clase es la clase principal que se encarga de seleccionar que punto se va a ejectutar.

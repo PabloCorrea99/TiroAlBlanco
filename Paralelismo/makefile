@@ -1,3 +1,17 @@
+#JFLAGS = -g
+#JC = javac
+#JVM = java 
+#MAIN= Core
+
+#run: $(MAIN).class
+#	$(JVM) $(MAIN)
+
+#$(MAIN):
+#	$(JC) $(JFLAGS) *.java
+
+#borrar:
+#	rm *.class
+
 all:src/Core.class
 
 src/Core.class: src/Core.java
@@ -5,6 +19,3 @@ src/Core.class: src/Core.java
 	
 clean:
 	$(RM) src/*.class Core.jar
-	
-run: $(Core).class
-	$(java) $(Core)

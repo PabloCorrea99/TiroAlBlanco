@@ -1,4 +1,4 @@
-package Paralelismo.src;
+
 
 // Esta clase recibe cada uno de los arreglos que devuelven los hilos y los
 // analiza para devolver el maximo y el minimo de cada una de las columnas.

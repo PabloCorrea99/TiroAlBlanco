@@ -1,4 +1,4 @@
-package Paralelismo.src;
+
 
 // Esta clase es la que define el comportamiento de los hilos secundarios del punto C.
 // Estos hilos reciben una matriz y analizan la parte que les corresponde de la misma
