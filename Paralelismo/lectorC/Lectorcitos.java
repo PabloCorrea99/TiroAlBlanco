@@ -1,7 +1,9 @@
 package TiroAlBlanco.paralelismo.lectorC;
 
 public class Lectorcitos extends Thread {
-    public String[] lineas;
+    public static String[] lineas;
+    public int inicio;
+    public int fin;
     public double max1;
     public double max2;
     public double max3;
@@ -11,15 +13,17 @@ public class Lectorcitos extends Thread {
     public double min3;
     public double min4;
 
-    public Lectorcitos(String[] lineas){
+    public Lectorcitos(String[] lineas, int inicio, int fin) {
         this.lineas = lineas;
+        this.inicio = inicio;
+        this.fin = fin;
     }
 
     @Override
-    public void run(){       
+    public void run() {
         try {
             String linea;
-            String valor [];
+            String valor[];
             double columna1;
             double columna2;
             double columna3;
@@ -35,12 +39,12 @@ public class Lectorcitos extends Thread {
             min2 = 10.0;
             min3 = 10.0;
             min4 = 10.0;
-            for (int i = inicio; i <= fin ; i++) {
+            for (int i = inicio; i <= fin; i++) {
                 valor = br.readLine().split(";");
-                columna1 =  Double.parseDouble(valor [2]);
-                columna2 =  Double.parseDouble(valor [3]);
-                columna3 =  Double.parseDouble(valor [4]);
-                columna4 =  Double.parseDouble(valor [5]);
+                columna1 = Double.parseDouble(valor[2]);
+                columna2 = Double.parseDouble(valor[3]);
+                columna3 = Double.parseDouble(valor[4]);
+                columna4 = Double.parseDouble(valor[5]);
                 if (columna1 > max1)
                     max1 = columna1;
                 else if (columna1 < min1)
@@ -66,16 +70,16 @@ public class Lectorcitos extends Thread {
             this.min2 = min2;
             this.min3 = min3;
             this.min4 = min4;
-            
-        }catch (Exception e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            try{
-                if(null != lector) {
-                    lector.close(); 
-                    
+        } finally {
+            try {
+                if (null != lector) {
+                    lector.close();
+
                 }
-            }catch (Exception e2) {
+            } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
@@ -94,29 +98,28 @@ public class Lectorcitos extends Thread {
         numeros3min = new double[20];
         numeros4min = new double[20];
 
-
         long inicioPro = System.currentTimeMillis();
 
-        Lectorcitos t1 = new Lectorcitos(2, x, 0);
-        Lectorcitos t2 = new Lectorcitos(x + 1, (2 * x), x);
-        Lectorcitos t3 = new Lectorcitos((x * 2) + 1, (3 * x), x * 2);
-        Lectorcitos t4 = new Lectorcitos((x * 3) + 1, (4 * x), x * 3);
-        Lectorcitos t5 = new Lectorcitos((x * 4) + 1, (5 * x), x * 4);
-        Lectorcitos t6 = new Lectorcitos((x * 5) + 1, (6 * x), x * 5);
-        Lectorcitos t7 = new Lectorcitos((x * 6) + 1, (7 * x), x * 6);
-        Lectorcitos t8 = new Lectorcitos((x * 7) + 1, (8 * x), x * 7);
-        Lectorcitos t9 = new Lectorcitos((x * 8) + 1, (9 * x), x * 8);
-        Lectorcitos t10 = new Lectorcitos((x * 9) + 1, (10 * x), x * 9);
-        Lectorcitos t11 = new Lectorcitos((x * 10) + 1, (11 * x), x * 10);
-        Lectorcitos t12 = new Lectorcitos((x * 11) + 1, (12 * x), x * 11);
-        Lectorcitos t13 = new Lectorcitos((x * 12) + 1, (13 * x), x * 12);
-        Lectorcitos t14 = new Lectorcitos((x * 13) + 1, (14 * x), x * 13);
-        Lectorcitos t15 = new Lectorcitos((x * 14) + 1, (15 * x), x * 14);
-        Lectorcitos t16 = new Lectorcitos((x * 15) + 1, (16 * x), x * 15);
-        Lectorcitos t17 = new Lectorcitos((x * 16) + 1, (17 * x), x * 16);
-        Lectorcitos t18 = new Lectorcitos((x * 17) + 1, (18 * x), x * 17);
-        Lectorcitos t19 = new Lectorcitos((x * 18) + 1, (19 * x), x * 18);
-        Lectorcitos t20 = new Lectorcitos((x * 19) + 1, 1116772 , x * 19);
+        Lectorcitos t1 = new Lectorcitos(lineas, 0, x);
+        Lectorcitos t2 = new Lectorcitos(lineas, x + 1, (x*2)+1);
+        Lectorcitos t3 = new Lectorcitos(lineas, );
+        Lectorcitos t4 = new Lectorcitos();
+        Lectorcitos t5 = new Lectorcitos();
+        Lectorcitos t6 = new Lectorcitos();
+        Lectorcitos t7 = new Lectorcitos();
+        Lectorcitos t8 = new Lectorcitos();
+        Lectorcitos t9 = new Lectorcitos();
+        Lectorcitos t10 = new Lectorcitos();
+        Lectorcitos t11 = new Lectorcitos();
+        Lectorcitos t12 = new Lectorcitos();
+        Lectorcitos t13 = new Lectorcitos();
+        Lectorcitos t14 = new Lectorcitos();
+        Lectorcitos t15 = new Lectorcitos();
+        Lectorcitos t16 = new Lectorcitos();
+        Lectorcitos t17 = new Lectorcitos();
+        Lectorcitos t18 = new Lectorcitos();
+        Lectorcitos t19 = new Lectorcitos();
+        Lectorcitos t20 = new Lectorcitos();
 
         t1.start();
         t2.start();

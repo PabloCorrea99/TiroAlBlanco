@@ -48,7 +48,7 @@ public class LectorC extends Thread{
 
             t1.join();
             
-            Lectorcitos h1 = new Lectorcitos(linea);                
+            Lectorcitos h1 = new Lectorcitos(linea, 0, 1116772);                
 
             System.out.println(System.currentTimeMillis() - inicioPro + " milisegundos");
     
