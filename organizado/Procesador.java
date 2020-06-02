@@ -1,4 +1,4 @@
-package TiroAlBlanco.organizado;
+package organizado;
 
 public class Procesador {
     public double [] procesar (double [][] valores){

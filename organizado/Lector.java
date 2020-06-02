@@ -1,10 +1,10 @@
-package TiroAlBlanco.organizado;
+package organizado;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 public class Lector {
 
-    public double [][] lectura (String direccion){
+    public synchronized double [][] lectura (String direccion){
         File archivo = null;
         FileReader lector = null;
         BufferedReader br = null;

@@ -1,4 +1,4 @@
-package TiroAlBlanco.organizado;
+package organizado;
 
 public class MultiProcesador extends Thread{
     public int inicio, fin;
@@ -12,7 +12,7 @@ public class MultiProcesador extends Thread{
         this.fin = fin;
     }
     public void run(){
-        valores = lector.lectura("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+        valores = lector.lectura("C:/cygwin64/home/spulgarinv/st0254/254sspulgarinv/Nand2Tetris/nand2tetris/tool/TiroAlBlanco/Paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
         double max1 = 0;
         double max2 = 0;
         double max3 = 0;

@@ -1,4 +1,4 @@
-package TiroAlBlanco.organizado;
+package organizado;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class Core {
         Procesador procesador = new Procesador();
         if (seleccion == 1){
             long inicio = System.currentTimeMillis();
-            valores = lector.lectura("C:\\Users\\Usuario\\Desktop\\5 SEMESTRE\\Proyecto Final Org\\TiroAlBlanco\\paralelismo\\DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            valores = lector.lectura("C:/cygwin64/home/spulgarinv/st0254/254sspulgarinv/Nand2Tetris/nand2tetris/tools/TiroAlBlanco/Paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
             max_min = procesador.procesar(valores);
             System.out.println("El maximo de la columna uno es:"+max_min[0]+'\n'+
             "El minimo de la columna uno es:"+max_min[1]+'\n'+
