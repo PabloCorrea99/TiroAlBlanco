@@ -106,11 +106,15 @@ public class MultiProcesador extends Thread{
             min3 = 10.0;
             min4 = 10.0;
             try{
-                br.skip(lineas * 54);
-                for (int i = inicio; i <= fin ; i++) {
-                    archivo = new File(direccion);
-                    lector = new FileReader(archivo);
-                    br = new BufferedReader(lector);
+                archivo = new File(direccion);
+                lector = new FileReader(archivo);
+                br = new BufferedReader(lector);
+                String line;
+                line = br.readLine();
+                int num=line.chars().toArray().length;
+                br = new BufferedReader(lector);
+                br.skip(lineas * (num+1));
+                for (int i = inicio + 1; i <= fin ; i++) {
                     valor = br.readLine().split(";");
                     columna1 =  Double.parseDouble(valor [2]);
                     columna2 =  Double.parseDouble(valor [3]);
@@ -137,7 +141,11 @@ public class MultiProcesador extends Thread{
                 archivo = new File(direccion);
                 lector = new FileReader(archivo);
                 br = new BufferedReader(lector);
-                br.skip(lineas * 55);
+                String line;
+                line = br.readLine();
+                int num=line.chars().toArray().length;
+                br = new BufferedReader(lector);
+                br.skip(lineas * (num+1));
                 for (int i = inicio; i <= fin ; i++) {
                     valor = br.readLine().split(";");
                     columna1 =  Double.parseDouble(valor [2]);
