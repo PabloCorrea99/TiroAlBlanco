@@ -24,7 +24,7 @@ public class Core {
         // ultimo se imprimen los resultados.
         if (seleccion == 1){
             long inicio = System.currentTimeMillis();
-            valores = lector.lectura("/Users/carlosmesa/Documents/Universidad/5SEMESTRE/Organizacion de computadores/Practica final/Codigo/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            valores = lector.lectura("DAT_ASCII_EURUSD_M1_2017_2019.csv");
             max_min = procesador.procesar(valores);
             System.out.println("El maximo de la columna uno es:"+max_min[0]+'\n'+
             "El minimo de la columna uno es:"+max_min[1]+'\n'+
@@ -274,7 +274,7 @@ public class Core {
                 j++;
                 subresultados [i][j] =  hilos[i].subresultados[j];
             }
-            
+
             max_min = procesador.procesar(valores);
             System.out.println("El maximo de la columna uno es:"+max_min[0]+'\n'+
             "El minimo de la columna uno es:"+max_min[1]+'\n'+

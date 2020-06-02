@@ -14,7 +14,7 @@ public class Lector {
         FileReader lector = null;
         BufferedReader br = null;
         try {
-            archivo = new File ("/Users/carlosmesa/Documents/Universidad/5SEMESTRE/Organizacion de computadores/Practica final/Codigo/TiroAlBlanco/paralelismo/DAT_ASCII_EURUSD_M1_2017_2019.csv");
+            archivo = new File ("DAT_ASCII_EURUSD_M1_2017_2019.csv");
             lector = new FileReader (archivo);
             br = new BufferedReader(lector);
             tamaño = br.lines().count();
