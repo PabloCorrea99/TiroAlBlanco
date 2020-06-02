@@ -95,6 +95,8 @@ class Ball {
 	    return;
     }
 
+
+    // Cambia el valor de la x
     method void setX(int Ax) {
         let x = Ax;
         return;
@@ -152,6 +154,9 @@ class Ball {
         return;
     }
 
+
+    // Cuando la pelota es impactada por el laser
+    // cambia la posicion incial de aparicion.
     method void ballBoom() {
 
         if (x < 128) {
